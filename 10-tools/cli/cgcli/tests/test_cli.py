@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import io
+import json
 from contextlib import redirect_stderr, redirect_stdout
 from pathlib import Path
 from types import SimpleNamespace
@@ -92,9 +93,10 @@ def test_video_depth_emits_machine_readable_success(tmp_path, monkeypatch) -> No
         )
 
     assert exit_code == 0
-    assert '"command": "video.depth"' in stdout.getvalue()
-    assert f'"output_path": "{tmp_path / "source_depth.mp4"}"' in stdout.getvalue()
-    assert '"ok": true' in stdout.getvalue()
+    result = json.loads(stdout.getvalue())
+    assert result["command"] == "video.depth"
+    assert result["output_path"] == str(tmp_path / "source_depth.mp4")
+    assert result["ok"] is True
 
 
 def test_existing_output_is_rejected_before_loading_capability(tmp_path, monkeypatch) -> None:
