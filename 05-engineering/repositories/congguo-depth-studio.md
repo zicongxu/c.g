@@ -33,6 +33,6 @@ related: [../../10-tools/software/congguo-depth-studio/README.md]
 - Operations: [`docs/operations.md`](../../10-tools/software/congguo-depth-studio/docs/operations.md)
 
 Git stores source, tests, documentation, build configuration, and small brand assets. Model weights,
-applications, ZIPs, regression videos, and user videos remain outside Git. No public GitHub Release
-asset exists yet. Controlled object-storage identifiers and release checksums must be added here
-when infrastructure is available.
+applications, ZIPs, regression videos, and user videos remain outside Git. Source setup downloads a
+revision-pinned public ONNX artifact and enforces its recorded SHA-256. No public GitHub Release App
+asset exists yet; its artifact location and checksum must be added here when available.

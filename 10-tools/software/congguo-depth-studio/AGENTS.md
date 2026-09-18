@@ -40,7 +40,8 @@ Commit source, tests, build scripts, documentation, small brand assets, and mode
 - Public automation contract and request validation: `api.py`; shared callback/cancellation types:
   `contracts.py`.
 - macOS bundle metadata and collection rules: `packaging/macos/DepthMotionStudio.spec`.
-- Model changes: update `MODEL.md`, both model/build scripts, tests, and the visual regression baseline together.
+- Model changes: update `MODEL.md`, download/install/build scripts, tests, and the visual regression
+  baseline together.
 - Version changes: update `pyproject.toml`, `__init__.py`, the PyInstaller spec, and `CHANGELOG.md` together.
 
 ## Required validation

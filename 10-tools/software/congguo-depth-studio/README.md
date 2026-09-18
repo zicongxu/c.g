@@ -42,7 +42,7 @@ different workflows:
 | Route | Needs Python | Needs a separate model file | Use when |
 |---|---:|---:|---|
 | Packaged macOS App | No | No; it is embedded | Using the product or installing production `cgcli` |
-| Source checkout | Yes | Yes | Developing, testing, or building a release |
+| Source checkout | Yes | Downloaded during setup | Developing, testing, or building a release |
 
 ### Packaged App
 
@@ -57,19 +57,20 @@ from [`../../cli/cgcli/`](../../cli/cgcli/README.md).
 
 ### Source setup
 
-Prerequisites: Python 3.9-3.13 and the approved ONNX model. Reproducing the current macOS build
-requires Apple Silicon and macOS 13 or later. From the repository root:
+Prerequisites: Python 3.9-3.13 and network access to the pinned public model mirror. Reproducing the
+current macOS build requires Apple Silicon and macOS 13 or later. From the repository root:
 
 ```bash
 cd 10-tools/software/congguo-depth-studio
 make install
-make install-model MODEL=/absolute/path/depth_anything_v2_vits.onnx
+make download-model
 make run
 ```
 
-The model is intentionally excluded from Git. The installer validates its SHA-256 before copying it
-into the runtime resource directory. Its controlled-storage location is not yet recorded, so a new
-maintainer must request the exact ONNX artifact from the release owner. See
+The model is intentionally excluded from Git. The downloader uses a revision-pinned public ONNX
+mirror and refuses to install bytes that do not match the accepted SHA-256. Offline environments
+can use `make install-model MODEL=/absolute/path/depth_anything_v2_vits.onnx` instead. The official
+upstream, mirror provenance, license, and hash are recorded in
 [`MODEL.md`](src/congguo_depth_studio/resources/MODEL.md).
 
 ## Validation

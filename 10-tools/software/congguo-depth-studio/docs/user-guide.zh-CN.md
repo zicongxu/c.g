@@ -12,7 +12,8 @@ App、发布 ZIP 和模型，因此仅克隆 Git 仓库不能直接获得可运�
 4. 双击启动。首次打开若被 macOS 阻止，按住 Control 点击 App，选择“打开”。
 
 目前 GitHub Releases 中还没有公开安装包。拿不到发布 ZIP 时，请联系发布负责人；开发者可按
-[`development.md`](development.md) 使用源码运行，但仍需要获准的 ONNX 模型。
+[`development.md`](development.md) 使用源码运行，并通过 `make download-model` 下载及校验
+公开的 ONNX 模型制品。
 
 ## 使用方法
 

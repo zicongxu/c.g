@@ -10,6 +10,13 @@ Versions follow semantic versioning. Dates use `YYYY-MM-DD`.
   artifact and model-access prerequisites for clean-machine onboarding.
 - Updated release examples and repository indexes to version 2.3.0.
 
+### Added
+
+- Revision-pinned public ONNX download with mandatory SHA-256 verification through
+  `make download-model`.
+- Recorded the distinction between the official Apache-2.0 Small checkpoint and the third-party
+  ONNX conversion mirror.
+
 ## [2.3.0] - 2026-09-19
 
 ### Added

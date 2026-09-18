@@ -18,23 +18,28 @@ related: [../README.md, architecture.md, build-and-release.md]
 - Python 3.9-3.13. The macOS 2.1.0 baseline was built with Python 3.9.6.
 - Apple Silicon Mac for reproducing the current macOS artifact.
 - Approximately 2 GB of temporary space for dependencies and PyInstaller.
-- The accepted ONNX model, stored outside Git.
+- Network access to the pinned ONNX mirror, or an already downloaded accepted ONNX model.
 
 ## Setup
 
 ```bash
 cd 10-tools/software/congguo-depth-studio
 make install
-make install-model MODEL=/absolute/path/depth_anything_v2_vits.onnx
+make download-model
 ```
 
 `make install` creates `.venv` and installs the runtime, test, lint, and build dependencies in editable mode.
+`make download-model` downloads a revision-pinned public ONNX artifact and verifies its SHA-256.
+Offline environments can instead run
+`make install-model MODEL=/absolute/path/depth_anything_v2_vits.onnx`.
 
 ## Commands
 
 | Command | Purpose |
 |---|---|
 | `make run` | Launch the source UI |
+| `make download-model` | Download and verify the pinned public ONNX artifact |
+| `make install-model MODEL=/path/model.onnx` | Verify and install an existing local model |
 | `make lint` | Run Ruff checks |
 | `make test` | Run fast tests on Qt's minimal platform |
 | `make smoke` | Construct the application and verify model readiness without entering the event loop |

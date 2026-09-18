@@ -1,9 +1,12 @@
-.PHONY: install install-model run test lint smoke build-macos clean
+.PHONY: install download-model install-model run test lint smoke build-macos clean
 
 install:
 	python3 -m venv .venv
 	.venv/bin/python -m pip install --upgrade 'pip>=23,<27'
 	.venv/bin/pip install -e '.[dev,build]'
+
+download-model:
+	./scripts/download-model.sh
 
 install-model:
 	@test -n "$(MODEL)" || (echo "Usage: make install-model MODEL=/path/to/depth_anything_v2_vits.onnx"; exit 1)

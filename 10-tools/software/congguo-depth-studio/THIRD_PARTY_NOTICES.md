@@ -13,6 +13,11 @@ The application source and Congguo brand assets are internal proprietary assets.
 
 Model upstream: <https://github.com/DepthAnything/Depth-Anything-V2>
 
+Pinned ONNX conversion mirror: <https://huggingface.co/CyberTimon/RapidRAW-Models/blob/daec18e762798acb835d3cda7542d9ecee0dc16b/depth_anything_v2_vits.onnx>
+
+The mirror is not the official upstream. Releases accept it only after matching the SHA-256 recorded
+in `src/congguo_depth_studio/resources/MODEL.md`.
+
 Paper: <https://arxiv.org/abs/2406.09414>
 
 Before release:

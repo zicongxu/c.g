@@ -81,17 +81,19 @@ Python environment for contributors and is not how production `cgcli` operates.
 
 ## Repository development
 
-Prerequisites: Python 3.9-3.13 and the accepted external ONNX model.
+Prerequisites: Python 3.9-3.13 and network access to the provider's pinned public ONNX mirror, or an
+already downloaded accepted model for offline setup.
 
 ```bash
 cd 10-tools/cli/cgcli
 make dev-install
-../../software/congguo-depth-studio/scripts/install-model.sh \
-  /absolute/path/depth_anything_v2_vits.onnx
+make -C ../../software/congguo-depth-studio download-model
 ```
 
 `make dev-install` is only for contributors running source tests. It intentionally creates a local
 dependency environment; production users should never need it. The model remains excluded from Git.
+Offline contributors can install an already downloaded model with the provider's
+`make install-model MODEL=/absolute/path/depth_anything_v2_vits.onnx` command.
 
 ## Commands
 

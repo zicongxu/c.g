@@ -25,11 +25,15 @@ related: [../README.md, development.md, ../THIRD_PARTY_NOTICES.md]
 ```bash
 cd 10-tools/software/congguo-depth-studio
 make install
-make install-model MODEL=/absolute/path/depth_anything_v2_vits.onnx
+make download-model
 make lint
 make test
 make build-macos
 ```
+
+For an offline or controlled release environment, replace `make download-model` with
+`make install-model MODEL=/absolute/path/depth_anything_v2_vits.onnx`. Both paths enforce the same
+accepted SHA-256.
 
 The build script validates the model, installs/updates build dependencies, runs PyInstaller, and verifies the ad-hoc signed app. Expected output: `dist/葱果深度工坊.app`.
 
