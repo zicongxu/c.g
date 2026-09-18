@@ -384,7 +384,9 @@ def main() -> int:
     app.setStyleSheet(APP_STYLE)
     window = MainWindow()
     if os.environ.get("DEPTH_STUDIO_SMOKE_TEST") == "1":
-        print(f"ready={window.model_path.exists()} status={window.status_label.text()}")
+        # Keep the packaging probe ASCII-only: Windows CI may use a legacy console
+        # code page even though the actual GUI renders Unicode normally.
+        print(f"ready={window.model_path.exists()}")
         return 0
     test_input = os.environ.get("DEPTH_STUDIO_PROCESS_TEST_INPUT")
     test_output = os.environ.get("DEPTH_STUDIO_PROCESS_TEST_OUTPUT")
