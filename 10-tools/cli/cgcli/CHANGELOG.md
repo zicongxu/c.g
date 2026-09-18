@@ -2,12 +2,17 @@
 
 Versions follow semantic versioning. Dates use `YYYY-MM-DD`.
 
-## [Unreleased]
+## [0.3.0] - 2026-09-19
+
+### Added
+
+- Dependency-free Windows `cgcli.cmd` launcher that delegates to the packaged console CLI Host.
+- PowerShell installer with App-host discovery, per-user configuration, and PATH setup.
 
 ### Documentation
 
-- Added the complete macOS installation order, App dependency, PATH recovery, uninstall steps, and
-  the distinction between the production launcher and `make dev-install`.
+- Added complete macOS and Windows installation, PATH recovery, uninstall, and clean-machine
+  handoff paths.
 
 ## [0.2.0] - 2026-09-19
 

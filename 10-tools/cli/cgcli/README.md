@@ -23,7 +23,7 @@ an API key, or a network connection at runtime.
 
 ## Status and ownership
 
-- Version: `0.2.0`
+- Version: `0.3.0`
 - Lifecycle: functional draft pending named human-owner acceptance
 - Owner role: Congguo Engineering
 - Data impact: reads a local video and model; writes one local MP4
@@ -37,8 +37,8 @@ installed launcher delegates to the executable inside `葱果深度工坊.app`, 
 cgcli command implementation and the same `DepthProcessor` used by the GUI.
 
 ```text
-cgcli launcher (a few KB)
-  -> 葱果深度工坊.app/Contents/MacOS/CongGuoDepthStudio --cgcli
+cgcli launcher (a few KB; shell on macOS, CMD on Windows)
+  -> packaged App CLI host --cgcli
   -> embedded cgcli parser
   -> congguo_depth_studio.api
   -> shared DepthProcessor and bundled model
@@ -46,7 +46,9 @@ cgcli launcher (a few KB)
 
 ## Install
 
-Production installation currently supports macOS. First install the packaged Congguo Depth Studio
+### macOS
+
+First install the packaged Congguo Depth Studio
 in `~/Applications` or `/Applications`; the App already contains Python, FFmpeg, inference
 libraries, and the model. A Git clone does not contain that App, and there is currently no public
 GitHub Release asset. Obtain the versioned App ZIP from the release owner by following the
@@ -78,6 +80,24 @@ untouched.
 
 Do not run `make dev-install` for normal installation. That command intentionally creates a second
 Python environment for contributors and is not how production `cgcli` operates.
+
+### Windows x64
+
+Build the Windows portable App first, then install the dependency-free launcher:
+
+```powershell
+cd 10-tools\software\congguo-depth-studio
+.\scripts\setup-windows.ps1
+.\scripts\build-windows.ps1
+
+cd ..\..\cli\cgcli
+.\scripts\install-launcher-windows.ps1 `
+  -AppPath ..\..\software\congguo-depth-studio\dist\CongGuoDepthStudio
+```
+
+Open a new terminal and run `cgcli --version`. The installed `cgcli.cmd` delegates to
+`CongGuoCliHost.exe`; the GUI and CLI share the portable App's `_internal` runtime and model. See
+the provider's [`Windows guide`](../../software/congguo-depth-studio/docs/windows.md).
 
 ## Repository development
 

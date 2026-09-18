@@ -1,6 +1,6 @@
 ---
 title: Congguo Depth Studio Build and Release Guide
-summary: Model preparation, macOS packaging, Windows porting, and release acceptance
+summary: Model preparation, macOS and Windows packaging, and release acceptance
 status: draft
 owner: Congguo Product Team
 updated: 2026-09-18
@@ -16,7 +16,8 @@ related: [../README.md, development.md, ../THIRD_PARTY_NOTICES.md]
 ## Release inputs
 
 - A clean, identified Git commit.
-- Apple Silicon Mac, macOS 13+, and Python 3.9-3.13 for the current macOS target.
+- Apple Silicon Mac, macOS 13+, and Python 3.9-3.13 for macOS.
+- Windows 10/11 x64, PowerShell 5.1+, and Python 3.12 x64 for Windows.
 - The accepted `depth_anything_v2_vits.onnx`, verified by SHA-256.
 - For external release: Developer ID credentials, notarization credentials, and an approved third-party license manifest.
 
@@ -82,8 +83,8 @@ The CLI invocation must use the model and processing libraries inside this same 
 ```bash
 cd dist
 ditto -c -k --sequesterRsrc --keepParent \
-  '葱果深度工坊.app' '葱果深度工坊-v2.3.0-macOS-arm64.zip'
-shasum -a 256 '葱果深度工坊-v2.3.0-macOS-arm64.zip'
+  '葱果深度工坊.app' '葱果深度工坊-v2.4.0-macOS-arm64.zip'
+shasum -a 256 '葱果深度工坊-v2.4.0-macOS-arm64.zip'
 ```
 
 Do not commit the app, ZIP, model, or test video. Store release artifacts in company object
@@ -95,18 +96,29 @@ the release owner supplies the ZIP; do not imply that a Git clone contains a run
 
 The current internal artifact is ad-hoc signed. An external macOS release requires Developer ID Application signing, Apple notarization, and stapling. Credentials belong in CI secret storage, never in Git.
 
-## Windows path
+## Windows x64 build
 
-The application does not need a rewrite. `app.py`, `widgets.py`, `styles.py`, and `depth_processor.py` are shared, and Reveal already has an `explorer.exe /select,` branch. Windows work is packaging and platform acceptance:
+Build on Windows; PyInstaller does not cross-compile from macOS:
 
-1. Build on Windows x64; PyInstaller does not cross-compile from macOS.
-2. Add `packaging/windows/DepthMotionStudio.spec` for a GUI EXE/onedir artifact; do not use macOS `BUNDLE`.
-3. Supply an `.ico`, Windows version metadata, and code signing.
-4. Verify the Windows ONNX Runtime, OpenCV, and imageio-ffmpeg binaries are collected.
-5. Test at 100%, 125%, and 150% DPI, including Chinese fonts, drag-and-drop, playback, and Explorer reveal.
-6. Validate the signed artifact on a clean Windows machine.
+```powershell
+cd 10-tools\software\congguo-depth-studio
+.\scripts\setup-windows.ps1
+.\scripts\build-windows.ps1
+```
 
-If DirectML is added, capability-detect it and keep CPU fallback. Do not fork the processing algorithm by platform.
+The build uses `packaging\windows\DepthMotionStudio.spec` and produces one portable directory with
+two executable hosts. `CongGuoDepthStudio.exe` uses the Windows GUI subsystem;
+`CongGuoCliHost.exe` uses the console subsystem so automation receives stdout, stderr, and exit
+codes. Both use the same `_internal` directory, model, dependencies, and Python implementation.
+
+The build script verifies the model, runs App and CLI tests, runs PyInstaller, checks both hosts,
+smoke-tests `cgcli --version`, smoke-tests model discovery through the console host, and creates
+`dist\congguo-depth-studio-v2.4.0-windows-x64.zip`. CI repeats the build but deliberately does not upload
+the proprietary portable artifact from this public repository.
+
+Follow [`windows.md`](windows.md) for clean-machine, DPI, Explorer, launcher, and offline acceptance.
+If DirectML is added, capability-detect it and keep CPU fallback. Do not fork the processing
+algorithm by platform.
 
 ## Release checklist
 
@@ -115,5 +127,6 @@ If DirectML is added, capability-detect it and keep CPU fallback. Do not fork th
 - [ ] Lint, unit, smoke, packaged end-to-end, and real-UI checks pass.
 - [ ] Model and dependency license review is current.
 - [ ] Signing/notarization matches the target audience.
+- [ ] Windows CI passes when Windows packaging or shared runtime code changes.
 - [ ] Artifact checksum and rollback version are recorded outside Git.
 - [ ] `.venv`, `build/`, PyInstaller COLLECT output, and temporary test files are cleaned.

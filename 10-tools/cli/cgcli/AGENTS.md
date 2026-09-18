@@ -23,6 +23,8 @@ the company-wide CLI.
 - Heavy or product-specific dependencies are imported only inside their capability handler.
 - Production installation is a lightweight launcher into the App Bundle. Do not create a second
   Python runtime or copy model weights for cgcli.
+- On Windows, `cgcli.cmd` delegates to `CongGuoCliHost.exe` in the portable App. Keep the separate
+  console host so stdout, stderr, pipes, and exit codes remain reliable; it must share `_internal`.
 - The packaged executable accepts the private transport marker `--cgcli`; users continue to use the
   public `cgcli <domain> <capability>` contract.
 - Non-interactive calls never prompt. Destructive replacement requires an explicit flag.

@@ -1,0 +1,56 @@
+name: Windows validation
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - ".github/workflows/windows.yml"
+      - "10-tools/cli/cgcli/**"
+      - "10-tools/software/congguo-depth-studio/**"
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/windows.yml"
+      - "10-tools/cli/cgcli/**"
+      - "10-tools/software/congguo-depth-studio/**"
+
+permissions:
+  contents: read
+
+jobs:
+  validate-windows-x64:
+    runs-on: windows-latest
+    timeout-minutes: 45
+    defaults:
+      run:
+        shell: pwsh
+        working-directory: 10-tools/software/congguo-depth-studio
+
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v7
+
+      - name: Set up Python 3.12 x64
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          architecture: x64
+          cache: pip
+          cache-dependency-path: |
+            10-tools/software/congguo-depth-studio/pyproject.toml
+            10-tools/cli/cgcli/pyproject.toml
+
+      - name: Install dependencies and verified model
+        run: .\scripts\setup-windows.ps1 -PythonCommand python
+
+      - name: Build and verify portable App and embedded CLI
+        run: .\scripts\build-windows.ps1 -SkipSetup -SkipArchive
+
+      - name: Confirm expected hosts exist
+        run: |
+          if (-not (Test-Path .\dist\CongGuoDepthStudio\CongGuoDepthStudio.exe)) {
+            throw "GUI host is missing"
+          }
+          if (-not (Test-Path .\dist\CongGuoDepthStudio\CongGuoCliHost.exe)) {
+            throw "CLI host is missing"
+          }

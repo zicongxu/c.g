@@ -2,18 +2,23 @@
 
 Versions follow semantic versioning. Dates use `YYYY-MM-DD`.
 
-## [Unreleased]
+## [2.4.0] - 2026-09-19
+
+### Added
+
+- Native Windows x64 source bootstrap, model downloader, dual-host PyInstaller package, portable
+  ZIP creation, branded ICO/version resources, and clean-machine guide.
+- A console-subsystem `CongGuoCliHost.exe` beside the GUI executable so Windows cgcli preserves
+  stdout, stderr, pipes, and exit codes while sharing one runtime and model.
+- Windows CI validation that builds and smoke-tests both hosts without publishing proprietary
+  artifacts.
+- Revision-pinned public ONNX download with mandatory SHA-256 verification on macOS and Windows.
 
 ### Documentation
 
 - Separated packaged-user installation from source development and documented the current release
   artifact and model-access prerequisites for clean-machine onboarding.
-- Updated release examples and repository indexes to version 2.3.0.
-
-### Added
-
-- Revision-pinned public ONNX download with mandatory SHA-256 verification through
-  `make download-model`.
+- Updated release examples and repository indexes to version 2.4.0.
 - Recorded the distinction between the official Apache-2.0 Small checkpoint and the third-party
   ONNX conversion mirror.
 

@@ -19,8 +19,9 @@ does not contain the ONNX model or packaged application. Choose the route that m
 | Goal | Start here | Important prerequisite |
 |---|---|---|
 | Install and use the macOS App | [`Congguo Depth Studio user guide`](10-tools/software/congguo-depth-studio/docs/user-guide.zh-CN.md) | A release ZIP supplied by the release owner |
-| Install `cgcli` for normal use | [`cgcli user guide`](10-tools/cli/cgcli/docs/user-guide.zh-CN.md) | The App must already be installed |
-| Run or change the App from source | [`Depth Studio development guide`](10-tools/software/congguo-depth-studio/docs/development.md) | Python 3.9-3.13; the verified model can be downloaded during setup |
+| Run or build on Windows x64 | [`Windows clean-machine guide`](10-tools/software/congguo-depth-studio/docs/windows.md) | Python 3.12 x64 and PowerShell |
+| Install `cgcli` for normal use | [`cgcli user guide`](10-tools/cli/cgcli/docs/user-guide.zh-CN.md) | Build/install the platform App first |
+| Run or change the App from source | [`Depth Studio development guide`](10-tools/software/congguo-depth-studio/docs/development.md) | Python 3.9-3.13; the verified model downloads during setup |
 | Extend `cgcli` | [`cgcli maintainer guide`](10-tools/cli/cgcli/README.md) | Python is needed only for development |
 
 Cloning the repository is enough to inspect and change source code. Source execution additionally

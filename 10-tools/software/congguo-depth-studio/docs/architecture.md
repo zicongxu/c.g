@@ -49,9 +49,12 @@ flowchart LR
 `api.py` is the supported boundary for automation. `cgcli` imports it lazily so the
 top-level CLI remains lightweight and future capability domains do not inherit video dependencies.
 
-The packaged executable is dual-mode. Normal launch enters the Qt GUI; the internal `--cgcli`
-transport marker enters the embedded command runtime before Qt is imported. The installed `cgcli`
-launcher delegates to that executable, preventing a second Python environment or model copy.
+The packaged entry point is dual-mode. Normal launch enters the Qt GUI; the internal `--cgcli`
+transport marker enters the embedded command runtime before Qt is imported. macOS uses one App
+executable. Windows packages a GUI-subsystem host and a console-subsystem CLI Host into one COLLECT
+directory because Windows GUI executables do not reliably preserve terminal streams. Both hosts use
+the same entry point, `_internal` runtime, model, and processing implementation. Platform launchers
+only delegate, preventing a second Python environment or model copy.
 
 ## Thread model
 

@@ -7,6 +7,7 @@ from PyInstaller.utils.hooks import collect_data_files, collect_dynamic_libs
 project_root = Path(SPECPATH).parents[1]
 package_root = project_root / "src" / "congguo_depth_studio"
 cgcli_source_root = project_root.parents[1] / "cli" / "cgcli" / "src"
+windows_root = project_root / "packaging" / "windows"
 
 datas = [
     (str(package_root / "resources" / "depth_anything_v2_vits.onnx"), "resources"),
@@ -41,7 +42,9 @@ a = Analysis(
 
 pyz = PYZ(a.pure)
 
-exe = EXE(
+# Windows needs separate GUI and console-subsystem hosts so cgcli keeps working in pipes and agents.
+# Both hosts share the same COLLECT directory, libraries, model, and Python implementation.
+gui_exe = EXE(
     pyz,
     a.scripts,
     [],
@@ -53,34 +56,33 @@ exe = EXE(
     upx=False,
     console=False,
     disable_windowed_traceback=False,
-    argv_emulation=False,
-    target_arch="arm64",
-    codesign_identity=None,
-    entitlements_file=None,
+    icon=str(package_root / "resources" / "brand" / "CongGuo.ico"),
+    version=str(windows_root / "version_info.txt"),
+)
+
+cli_exe = EXE(
+    pyz,
+    a.scripts,
+    [],
+    exclude_binaries=True,
+    name="CongGuoCliHost",
+    debug=False,
+    bootloader_ignore_signals=False,
+    strip=False,
+    upx=False,
+    console=True,
+    disable_windowed_traceback=False,
+    icon=str(package_root / "resources" / "brand" / "CongGuo.ico"),
+    version=str(windows_root / "version_info.txt"),
 )
 
 coll = COLLECT(
-    exe,
+    gui_exe,
+    cli_exe,
     a.binaries,
     a.datas,
     strip=False,
     upx=False,
     upx_exclude=[],
     name="CongGuoDepthStudio",
-)
-
-app = BUNDLE(
-    coll,
-    name="葱果深度工坊.app",
-    icon=str(package_root / "resources" / "brand" / "CongGuo.icns"),
-    bundle_identifier="com.congguo.depthstudio",
-    info_plist={
-        "CFBundleDisplayName": "葱果深度工坊",
-        "CFBundleName": "葱果深度工坊",
-        "CFBundleShortVersionString": "2.4.0",
-        "CFBundleVersion": "7",
-        "LSMinimumSystemVersion": "13.0",
-        "NSHighResolutionCapable": True,
-        "NSPrincipalClass": "NSApplication",
-    },
 )

@@ -22,7 +22,7 @@ related: [../../10-tools/software/congguo-depth-studio/README.md]
 | Owner | Congguo Product Team; named human owner pending |
 | Stack | Python, PySide6, OpenCV, ONNX Runtime, FFmpeg, PyInstaller |
 | Runtime | Offline desktop application |
-| Current release | 2.3.0 / macOS arm64 |
+| Current release | 2.4.0 / macOS arm64 and Windows x64 source/package configuration |
 
 ## Engineering entry points
 
@@ -31,6 +31,7 @@ related: [../../10-tools/software/congguo-depth-studio/README.md]
 - Development: [`docs/development.md`](../../10-tools/software/congguo-depth-studio/docs/development.md)
 - Build/release: [`docs/build-and-release.md`](../../10-tools/software/congguo-depth-studio/docs/build-and-release.md)
 - Operations: [`docs/operations.md`](../../10-tools/software/congguo-depth-studio/docs/operations.md)
+- Windows: [`docs/windows.md`](../../10-tools/software/congguo-depth-studio/docs/windows.md)
 
 Git stores source, tests, documentation, build configuration, and small brand assets. Model weights,
 applications, ZIPs, regression videos, and user videos remain outside Git. Source setup downloads a

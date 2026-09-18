@@ -5,8 +5,8 @@
 当前正式使用路径只支持 Apple 芯片 Mac（macOS 13 或更高版本）。仓库只保存源码，不保存
 App、发布 ZIP 和模型，因此仅克隆 Git 仓库不能直接获得可运行软件。
 
-1. 向发布负责人获取带版本号的 `葱果深度工坊-v2.3.0-macOS-arm64.zip` 及 SHA-256。
-2. 校验文件；例如：`shasum -a 256 葱果深度工坊-v2.3.0-macOS-arm64.zip`。
+1. 向发布负责人获取带版本号的 `葱果深度工坊-v2.4.0-macOS-arm64.zip` 及 SHA-256。
+2. 校验文件；例如：`shasum -a 256 葱果深度工坊-v2.4.0-macOS-arm64.zip`。
 3. 解压 ZIP，将“葱果深度工坊.app”拖入当前用户的“应用程序”目录（`~/Applications`），
    或系统“应用程序”目录（`/Applications`）。
 4. 双击启动。首次打开若被 macOS 阻止，按住 Control 点击 App，选择“打开”。
@@ -14,6 +14,19 @@ App、发布 ZIP 和模型，因此仅克隆 Git 仓库不能直接获得可运�
 目前 GitHub Releases 中还没有公开安装包。拿不到发布 ZIP 时，请联系发布负责人；开发者可按
 [`development.md`](development.md) 使用源码运行，并通过 `make download-model` 下载及校验
 公开的 ONNX 模型制品。
+
+## Windows 10/11 x64
+
+Windows 新环境可以直接按 [`windows.md`](windows.md) 操作。最短源码运行路径为：
+
+```powershell
+cd 10-tools\software\congguo-depth-studio
+.\scripts\setup-windows.ps1
+.\.venv\Scripts\python.exe -m congguo_depth_studio
+```
+
+生成便携 App 使用 `.\scripts\build-windows.ps1`。完整目录必须一起保留，不能只复制
+`CongGuoDepthStudio.exe`。当前内部 Windows 构建尚未代码签名，SmartScreen 可能提示风险。
 
 ## 使用方法
 

@@ -8,6 +8,6 @@ items:
     owner: Congguo Engineering
     updated: 2026-09-19
     data_classification: internal
-    access_process: Install from the canonical monorepo source and install capability providers locally
-    version: 0.2.0
+    access_process: Install the lightweight platform launcher after installing or building its App provider
+    version: 0.3.0
     aliases: [Congguo CLI, 葱果 CLI]

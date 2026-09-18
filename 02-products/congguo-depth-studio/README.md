@@ -20,8 +20,9 @@ Congguo Depth Studio lets a creator select or drop an ordinary monocular video a
 ## Current status
 
 - Stage: usable prototype; human product acceptance is still required.
-- Release: `2.3.0`, macOS arm64 internal build with embedded cgcli runtime.
-- Health: functional baseline verified; distribution signing/notarization and Windows packaging remain open.
+- Release: `2.4.0`, shared macOS/Windows source with embedded cgcli runtime.
+- Health: macOS baseline verified locally; Windows x64 portable build is validated by CI. External
+  signing/notarization and public binary distribution remain open.
 - Canonical implementation and handoff: [`10-tools/software/congguo-depth-studio/`](../../10-tools/software/congguo-depth-studio/README.md).
 - Automation surface: [`cgcli video depth`](../../10-tools/cli/cgcli/README.md), backed by the same processing API.
 
@@ -58,6 +59,7 @@ Congguo Depth Studio lets a creator select or drop an ordinary monocular video a
 ## Open decisions
 
 - Name a human product owner and release owner.
-- Choose controlled storage for model weights and signed release artifacts.
+- Choose controlled storage for signed release artifacts; source setup uses a hash-pinned public
+  model mirror.
 - Decide whether the product remains relative-depth only or later adds skeletal motion capture.
-- Define Windows release priority and distribution channel.
+- Define the signed Windows and macOS binary distribution channel.

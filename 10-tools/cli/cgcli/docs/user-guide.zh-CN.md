@@ -59,6 +59,24 @@ CGCLI_DEPTH_MODEL=/models/depth_anything_v2_vits.onnx cgcli video depth input.mp
 已有同名输出时命令会拒绝覆盖；确认需要替换后再增加 `--overwrite`。按 `Ctrl+C` 会请求安全取消。
 本能力完全本地运行，不需要 Codex、ChatGPT 或云端 API。
 
+## Windows 10/11 x64 安装
+
+先按[Windows 指南](../../../software/congguo-depth-studio/docs/windows.md)构建便携 App，然后：
+
+```powershell
+cd 10-tools\cli\cgcli
+.\scripts\install-launcher-windows.ps1 `
+  -AppPath ..\..\software\congguo-depth-studio\dist\CongGuoDepthStudio
+```
+
+脚本只安装几 KB 的 `cgcli.cmd`，并指向 App 目录里的 `CongGuoCliHost.exe`。GUI 和 CLI
+继续共用同一个 `_internal` 运行环境和模型。重新打开终端后执行：
+
+```powershell
+cgcli --version
+cgcli video depth --help
+```
+
 ## 卸载与排查
 
 - 卸载：删除安装脚本打印出的 `cgcli` 文件，以及

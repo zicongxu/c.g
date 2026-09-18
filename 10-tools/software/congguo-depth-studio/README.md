@@ -17,10 +17,10 @@ Congguo Depth Studio is an offline desktop application that turns a monocular vi
 
 ## Current status
 
-- Version: `2.3.0`
+- Version: `2.4.0`
 - Lifecycle: usable prototype; remains `draft` until a named human owner accepts it
-- Verified baseline: macOS 15.7 on Apple Silicon, including packaged end-to-end processing
-- Delivered artifact: macOS arm64 `.app` and ZIP, stored outside Git
+- Verified baseline: macOS 15.7 on Apple Silicon; Windows x64 is built and smoke-tested in CI
+- Delivered artifact: macOS arm64 `.app` stored outside Git; Windows builds a portable ZIP
 - Main limitation: the output is monocular relative depth, not metric distance, skeletal motion capture, or reconstructed 3D geometry
 
 ## Supported workflow
@@ -41,8 +41,9 @@ different workflows:
 
 | Route | Needs Python | Needs a separate model file | Use when |
 |---|---:|---:|---|
-| Packaged macOS App | No | No; it is embedded | Using the product or installing production `cgcli` |
-| Source checkout | Yes | Downloaded during setup | Developing, testing, or building a release |
+| Packaged macOS App | No | No; embedded | Using the existing macOS product |
+| Windows source/portable build | Yes | Downloaded during setup | Running or building on Windows x64 |
+| Source checkout on macOS | Yes | Downloaded during setup | Developing, testing, or building macOS |
 
 ### Packaged App
 
@@ -73,6 +74,19 @@ can use `make install-model MODEL=/absolute/path/depth_anything_v2_vits.onnx` in
 upstream, mirror provenance, license, and hash are recorded in
 [`MODEL.md`](src/congguo_depth_studio/resources/MODEL.md).
 
+### Windows x64
+
+From PowerShell at the repository root:
+
+```powershell
+cd 10-tools\software\congguo-depth-studio
+.\scripts\setup-windows.ps1
+.\.venv\Scripts\python.exe -m congguo_depth_studio
+```
+
+Build and verify the portable App with `.\scripts\build-windows.ps1`. Then install the lightweight
+Windows cgcli launcher by following [`docs/windows.md`](docs/windows.md).
+
 ## Validation
 
 ```bash
@@ -101,6 +115,7 @@ congguo-depth-studio/
 │   ├── architecture.md              modules, threads, state, and data flow
 │   ├── development.md               setup, tests, debugging, conventions
 │   ├── build-and-release.md         macOS release and Windows porting
+│   ├── windows.md                   Windows setup, build, CLI install, and acceptance
 │   ├── operations.md                runtime behavior and troubleshooting
 │   └── user-guide.zh-CN.md          localized end-user guide
 ├── packaging/macos/             PyInstaller macOS specification
@@ -116,6 +131,7 @@ congguo-depth-studio/
 - Processing or model changes: read [`docs/architecture.md`](docs/architecture.md) and [`docs/development.md`](docs/development.md).
 - CLI automation: use the public contract in [`api.py`](src/congguo_depth_studio/api.py); do not import Qt UI modules.
 - Packaging or release: read [`docs/build-and-release.md`](docs/build-and-release.md).
+- Windows setup or packaging: read [`docs/windows.md`](docs/windows.md).
 - User-environment failures: read [`docs/operations.md`](docs/operations.md).
 - Dependency review: read [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md).
 

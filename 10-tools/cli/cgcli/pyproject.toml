@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "cgcli"
-version = "0.2.0"
+version = "0.3.0"
 description = "Extensible command-line interface for Congguo capabilities"
 readme = "README.md"
 requires-python = ">=3.9,<3.14"

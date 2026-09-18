@@ -22,6 +22,8 @@ related: [../README.md, architecture.md, build-and-release.md]
 
 ## Setup
 
+### macOS
+
 ```bash
 cd 10-tools/software/congguo-depth-studio
 make install
@@ -32,6 +34,17 @@ make download-model
 `make download-model` downloads a revision-pinned public ONNX artifact and verifies its SHA-256.
 Offline environments can instead run
 `make install-model MODEL=/absolute/path/depth_anything_v2_vits.onnx`.
+
+### Windows x64
+
+```powershell
+cd 10-tools\software\congguo-depth-studio
+.\scripts\setup-windows.ps1
+.\.venv\Scripts\python.exe -m congguo_depth_studio
+```
+
+This also installs the cgcli development entry point into the same `.venv`. The canonical Windows
+build, production-launcher, and clean-machine instructions are in [`windows.md`](windows.md).
 
 ## Commands
 
@@ -45,6 +58,8 @@ Offline environments can instead run
 | `make smoke` | Construct the application and verify model readiness without entering the event loop |
 | `make build-macos` | Validate the model, package, and verify the macOS app |
 | `make clean` | Remove reproducible build output and caches |
+| `.\scripts\setup-windows.ps1` | Create the shared Windows development environment |
+| `.\scripts\build-windows.ps1` | Test and build the Windows portable App and CLI Host |
 
 ## Test hooks
 
@@ -72,6 +87,9 @@ DEPTH_STUDIO_PROCESS_TEST_OUTPUT=/tmp/sample-depth.mp4 \
 Fast tests cover preprocessing shape/dtype, ETA formatting, and packaged brand-resource resolution. Processing changes also require a sanitized 0.5-2 second clip with audio. Verify successful exit, decodable output, expected streams, cancellation cleanup, depth polarity, temporal stability, and edge quality.
 
 UI validation must cover at least `680x600`, `768x760`, and `1440x900`. Qt's minimal platform is suitable for layout/state smoke tests but not final typography, Retina, Dock, file-drop, or visual acceptance; use a real macOS graphical session for those checks.
+
+Windows visual acceptance additionally covers 100%, 125%, and 150% DPI, SmartScreen behavior,
+Explorer Reveal, and launching from a path that contains spaces.
 
 ## Code conventions
 

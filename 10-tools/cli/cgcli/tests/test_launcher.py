@@ -2,9 +2,13 @@ from __future__ import annotations
 
 import os
 import subprocess
+import sys
 from pathlib import Path
 
+import pytest
+
 LAUNCHER = Path(__file__).parents[1] / "launcher" / "cgcli"
+pytestmark = pytest.mark.skipif(sys.platform == "win32", reason="POSIX launcher tests")
 
 
 def test_launcher_delegates_arguments_to_app_bundle(tmp_path) -> None:

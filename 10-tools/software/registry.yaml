@@ -9,8 +9,8 @@ items:
     cost_cycle: Internal software; no SaaS renewal
     renewal_date: null
     data_classification: internal
-    access_process: Build locally from the canonical source and install the controlled model weight
+    access_process: Follow the platform guide; setup downloads and verifies the pinned public model
     status: draft
-    version: 2.3.0
+    version: 2.4.0
     updated: 2026-09-19
     aliases: [CongGuo Depth Studio, 葱果深度工坊]
