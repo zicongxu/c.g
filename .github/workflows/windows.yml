@@ -43,8 +43,29 @@ jobs:
       - name: Install dependencies and verified model
         run: .\scripts\setup-windows.ps1 -PythonCommand python
 
+      - name: Run App and CLI test suite
+        run: |
+          .\.venv\Scripts\python.exe -m ruff check src tests ..\..\cli\cgcli\src ..\..\cli\cgcli\tests
+          if ($LASTEXITCODE -ne 0) {
+            Write-Output "::error title=Windows Ruff check failed::Ruff returned $LASTEXITCODE"
+            exit $LASTEXITCODE
+          }
+          .\.venv\Scripts\python.exe -m pytest -q tests ..\..\cli\cgcli\tests
+          if ($LASTEXITCODE -ne 0) {
+            Write-Output "::error title=Windows tests failed::pytest returned $LASTEXITCODE"
+            exit $LASTEXITCODE
+          }
+
       - name: Build and verify portable App and embedded CLI
-        run: .\scripts\build-windows.ps1 -SkipSetup -SkipArchive
+        run: |
+          try {
+            .\scripts\build-windows.ps1 -SkipSetup -SkipTests -SkipArchive
+          }
+          catch {
+            $Message = $_.Exception.Message.Replace("`r", " ").Replace("`n", " ")
+            Write-Output "::error title=Windows package build failed::$Message"
+            exit 1
+          }
 
       - name: Confirm expected hosts exist
         run: |

@@ -51,6 +51,7 @@ try {
     }
 
     if (-not $SkipTests) {
+        Write-Host "Running App and CLI lint/tests..."
         Invoke-Checked -Executable $VirtualPython -ArgumentList @(
             "-m", "ruff", "check", "src", "tests",
             (Join-Path $CliRoot "src"), (Join-Path $CliRoot "tests")
@@ -60,6 +61,7 @@ try {
         )
     }
 
+    Write-Host "Building Windows portable package with PyInstaller..."
     Invoke-Checked -Executable $VirtualPython -ArgumentList @(
         "-m", "PyInstaller", "--noconfirm", "--clean",
         "packaging\windows\DepthMotionStudio.spec"
@@ -80,6 +82,7 @@ try {
         throw "Packaged cgcli smoke test failed: $CliVersion"
     }
 
+    Write-Host "Packaged CLI host passed: $CliVersion"
     $PreviousPlatform = $env:QT_QPA_PLATFORM
     $PreviousSmoke = $env:DEPTH_STUDIO_SMOKE_TEST
     try {
@@ -95,6 +98,7 @@ try {
         $env:DEPTH_STUDIO_SMOKE_TEST = $PreviousSmoke
     }
 
+    Write-Host "Packaged GUI runtime and model discovery passed."
     Write-Host "Built and verified: $DistRoot"
     if (-not $SkipArchive) {
         $ArchivePath = Join-Path $ProjectRoot "dist\congguo-depth-studio-v2.4.0-windows-x64.zip"
