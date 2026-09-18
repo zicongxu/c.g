@@ -88,9 +88,14 @@ try {
     try {
         $env:QT_QPA_PLATFORM = "minimal"
         $env:DEPTH_STUDIO_SMOKE_TEST = "1"
-        $SmokeOutput = & $CliExecutable
-        if ($LASTEXITCODE -ne 0 -or $SmokeOutput -notmatch "ready=True") {
-            throw "Packaged App smoke test failed: $SmokeOutput"
+        $SmokeOutput = & $CliExecutable 2>&1
+        $SmokeExitCode = $LASTEXITCODE
+        $SmokeText = ($SmokeOutput | ForEach-Object { "$_" }) -join " | "
+        if ($SmokeExitCode -ne 0) {
+            throw "Packaged App smoke test exited ${SmokeExitCode}: $SmokeText"
+        }
+        if ($SmokeText -notmatch "ready=True") {
+            throw "Packaged App smoke test returned unexpected output: $SmokeText"
         }
     }
     finally {
