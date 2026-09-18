@@ -2,6 +2,13 @@
 
 Versions follow semantic versioning. Dates use `YYYY-MM-DD`.
 
+## [Unreleased]
+
+### Documentation
+
+- Added the complete macOS installation order, App dependency, PATH recovery, uninstall steps, and
+  the distinction between the production launcher and `make dev-install`.
+
 ## [0.2.0] - 2026-09-19
 
 ### Changed

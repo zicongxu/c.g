@@ -34,9 +34,31 @@ Congguo Depth Studio is an offline desktop application that turns a monocular vi
 - Automation: the App Bundle embeds [`cgcli`](../../cli/cgcli/README.md), so GUI and CLI share one
   runtime, model, and processing implementation.
 
-## Five-minute setup
+## Choose an installation route
 
-Prerequisites: Python 3.9-3.13. Reproducing the current macOS build requires Apple Silicon and macOS 13 or later.
+Normal users should install the packaged App; contributors should run from source. These are
+different workflows:
+
+| Route | Needs Python | Needs a separate model file | Use when |
+|---|---:|---:|---|
+| Packaged macOS App | No | No; it is embedded | Using the product or installing production `cgcli` |
+| Source checkout | Yes | Yes | Developing, testing, or building a release |
+
+### Packaged App
+
+The App and ZIP are intentionally outside Git. There is currently no public GitHub Release asset,
+so a fresh clone cannot install the packaged App by itself. Obtain the versioned macOS arm64 ZIP
+and SHA-256 from the release owner, then follow the
+[`Chinese user guide`](docs/user-guide.zh-CN.md). Do not copy an unversioned App from another
+machine and assume it matches this commit.
+
+After the App is installed, production `cgcli` is only a lightweight launcher and can be installed
+from [`../../cli/cgcli/`](../../cli/cgcli/README.md).
+
+### Source setup
+
+Prerequisites: Python 3.9-3.13 and the approved ONNX model. Reproducing the current macOS build
+requires Apple Silicon and macOS 13 or later. From the repository root:
 
 ```bash
 cd 10-tools/software/congguo-depth-studio
@@ -45,7 +67,10 @@ make install-model MODEL=/absolute/path/depth_anything_v2_vits.onnx
 make run
 ```
 
-The model is intentionally excluded from Git. The installer validates its SHA-256 before copying it into the runtime resource directory. See [`MODEL.md`](src/congguo_depth_studio/resources/MODEL.md).
+The model is intentionally excluded from Git. The installer validates its SHA-256 before copying it
+into the runtime resource directory. Its controlled-storage location is not yet recorded, so a new
+maintainer must request the exact ONNX artifact from the release owner. See
+[`MODEL.md`](src/congguo_depth_studio/resources/MODEL.md).
 
 ## Validation
 

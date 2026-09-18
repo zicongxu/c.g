@@ -78,11 +78,14 @@ The CLI invocation must use the model and processing libraries inside this same 
 ```bash
 cd dist
 ditto -c -k --sequesterRsrc --keepParent \
-  '葱果深度工坊.app' '葱果深度工坊-v2.1-macOS-arm64.zip'
-shasum -a 256 '葱果深度工坊-v2.1-macOS-arm64.zip'
+  '葱果深度工坊.app' '葱果深度工坊-v2.3.0-macOS-arm64.zip'
+shasum -a 256 '葱果深度工坊-v2.3.0-macOS-arm64.zip'
 ```
 
-Do not commit the app, ZIP, model, or test video. Store release artifacts in company object storage/release infrastructure and record version, checksum, build commit, and date.
+Do not commit the app, ZIP, model, or test video. Store release artifacts in company object
+storage/release infrastructure and record version, checksum, build commit, date, and a retrievable
+artifact location. Until that location exists, onboarding documentation must explicitly state that
+the release owner supplies the ZIP; do not imply that a Git clone contains a runnable App.
 
 ## Signing and notarization
 

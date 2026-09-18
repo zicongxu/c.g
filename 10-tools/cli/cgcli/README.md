@@ -46,12 +46,19 @@ cgcli launcher (a few KB)
 
 ## Install
 
-Install Congguo Depth Studio in `~/Applications` or `/Applications`, then install only the launcher:
+Production installation currently supports macOS. First install the packaged Congguo Depth Studio
+in `~/Applications` or `/Applications`; the App already contains Python, FFmpeg, inference
+libraries, and the model. A Git clone does not contain that App, and there is currently no public
+GitHub Release asset. Obtain the versioned App ZIP from the release owner by following the
+[`Depth Studio user guide`](../../software/congguo-depth-studio/docs/user-guide.zh-CN.md).
+
+Then, from the repository root, install only the launcher:
 
 ```bash
 cd 10-tools/cli/cgcli
 make install
 cgcli --version
+cgcli video depth --help
 ```
 
 If the app lives elsewhere:
@@ -63,8 +70,14 @@ make install APP=/absolute/path/葱果深度工坊.app
 The installer selects `/opt/homebrew/bin`, `/usr/local/bin`, or `~/.local/bin` in that order when the
 directory is writable. It stores the selected App path in
 `~/Library/Application Support/Congguo/cgcli-app-path`; `CGCLI_APP_PATH` can override it at runtime.
-To uninstall, remove the installed `cgcli` launcher and that path file; the App Bundle and its model
-remain untouched.
+
+If `cgcli` is not found after installation, add the directory printed by the installer to `PATH`,
+then open a new terminal. To uninstall, remove the exact launcher path printed by the installer and
+`~/Library/Application Support/Congguo/cgcli-app-path`; the App Bundle and its model remain
+untouched.
+
+Do not run `make dev-install` for normal installation. That command intentionally creates a second
+Python environment for contributors and is not how production `cgcli` operates.
 
 ## Repository development
 

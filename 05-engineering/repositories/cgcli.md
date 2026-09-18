@@ -15,7 +15,8 @@ related: [../../10-tools/cli/cgcli/README.md]
 
 - Canonical source: [`10-tools/cli/cgcli/`](../../10-tools/cli/cgcli/README.md)
 - Current version: `0.2.0`
-- Runtime: Python 3.9-3.13
+- Production runtime: lightweight macOS launcher into the installed App Bundle; no separate Python
+- Development runtime: Python 3.9-3.13
 - Owner role: Congguo Engineering
 - Provider for `video depth`: [`Congguo Depth Studio`](../../10-tools/software/congguo-depth-studio/README.md)
 - Runtime network and credentials: none for the initial depth capability

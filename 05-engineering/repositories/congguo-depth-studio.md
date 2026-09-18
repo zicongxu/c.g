@@ -22,7 +22,7 @@ related: [../../10-tools/software/congguo-depth-studio/README.md]
 | Owner | Congguo Product Team; named human owner pending |
 | Stack | Python, PySide6, OpenCV, ONNX Runtime, FFmpeg, PyInstaller |
 | Runtime | Offline desktop application |
-| Current release | 2.1.0 / macOS arm64 |
+| Current release | 2.3.0 / macOS arm64 |
 
 ## Engineering entry points
 
@@ -32,4 +32,7 @@ related: [../../10-tools/software/congguo-depth-studio/README.md]
 - Build/release: [`docs/build-and-release.md`](../../10-tools/software/congguo-depth-studio/docs/build-and-release.md)
 - Operations: [`docs/operations.md`](../../10-tools/software/congguo-depth-studio/docs/operations.md)
 
-Git stores source, tests, documentation, build configuration, and small brand assets. Model weights, applications, ZIPs, regression videos, and user videos remain outside Git. Controlled object-storage identifiers and release checksums must be added here when infrastructure is available.
+Git stores source, tests, documentation, build configuration, and small brand assets. Model weights,
+applications, ZIPs, regression videos, and user videos remain outside Git. No public GitHub Release
+asset exists yet. Controlled object-storage identifiers and release checksums must be added here
+when infrastructure is available.

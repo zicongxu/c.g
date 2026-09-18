@@ -2,6 +2,14 @@
 
 Versions follow semantic versioning. Dates use `YYYY-MM-DD`.
 
+## [Unreleased]
+
+### Documentation
+
+- Separated packaged-user installation from source development and documented the current release
+  artifact and model-access prerequisites for clean-machine onboarding.
+- Updated release examples and repository indexes to version 2.3.0.
+
 ## [2.3.0] - 2026-09-19
 
 ### Added

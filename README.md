@@ -11,6 +11,22 @@ This is the shared knowledge and operating workspace for Congguo Media (葱果�
 - Storage boundaries: [`STORAGE.md`](STORAGE.md).
 - New documents: use [`90-templates/`](90-templates/README.md).
 
+## Run the depth product
+
+This repository contains the source and handoff documentation for both products, but it deliberately
+does not contain the ONNX model or packaged application. Choose the route that matches your goal:
+
+| Goal | Start here | Important prerequisite |
+|---|---|---|
+| Install and use the macOS App | [`Congguo Depth Studio user guide`](10-tools/software/congguo-depth-studio/docs/user-guide.zh-CN.md) | A release ZIP supplied by the release owner |
+| Install `cgcli` for normal use | [`cgcli user guide`](10-tools/cli/cgcli/docs/user-guide.zh-CN.md) | The App must already be installed |
+| Run or change the App from source | [`Depth Studio development guide`](10-tools/software/congguo-depth-studio/docs/development.md) | Python 3.9-3.13 and the approved ONNX model |
+| Extend `cgcli` | [`cgcli maintainer guide`](10-tools/cli/cgcli/README.md) | Python is needed only for development |
+
+Cloning the repository alone is therefore enough to inspect, test, and change source code, but not
+to run depth inference. See the linked guides for the exact install commands and current artifact
+availability.
+
 ## Workspace Layers
 
 ```text
