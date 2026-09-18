@@ -1,8 +1,10 @@
 # Studio
 
-- `projects/`：每个视频项目的 brief、状态、负责人和交付链接。
-- `creative/`：可复用创意方法、脚本结构、风格与案例。
-- `pipeline/`：从策划、生成、编辑、审核到发布的流程。
-- `asset-catalog/`：素材、角色、声音、模型与成片的元数据清单。
+| Directory | Content |
+|---|---|
+| `projects/` | Video project briefs, state, owners, delivery links |
+| `creative/` | Reusable creative methods, narrative structures, style systems |
+| `pipeline/` | Planning, generation, editing, review, publishing workflows |
+| `asset-catalog/` | Media, character, voice, model, and output metadata |
 
-原始视频、音频和工程文件放对象存储或 NAS。清单至少记录资产 ID、版本、版权/授权、哈希、负责人和访问链接。
+Register every video project in `projects/registry.yaml`. Store heavy media externally and keep provenance, rights, version, checksum, and stable links here.

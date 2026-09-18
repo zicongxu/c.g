@@ -1,5 +1,12 @@
 # Agents
 
-每个 Agent 记录：职责、输入、输出、允许的工具、数据边界、需要人工确认的动作、失败/升级路径和 owner。
+Each agent lives at `agents/<agent-name>/` and defines:
 
-Agent 不应同时拥有“生成内容、批准内容、对外发布”三种权限；高风险链路至少保留一个人工检查点。
+- purpose and explicit non-goals;
+- input and output contracts;
+- allowed tools and data boundaries;
+- actions requiring human approval;
+- failure, escalation, and handoff behavior;
+- owner, version, and evaluation links.
+
+Register every agent in `registry.yaml`. An agent should not simultaneously generate, approve, and externally publish high-risk content.

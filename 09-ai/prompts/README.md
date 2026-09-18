@@ -1,5 +1,5 @@
 # Prompts
 
-Prompt 作为代码管理：使用稳定名称和语义化版本，记录目标、变量、模型假设、成功/失败示例以及关联评测。
+Each reusable prompt lives at `prompts/<prompt-name>/` and records purpose, variables, model assumptions, version, success examples, failure examples, and evaluation links.
 
-仅在 Prompt 与特定模型强绑定且确有价值时保留；可重复的多步骤能力优先封装为 Skill 或 Workflow。
+Register every reusable prompt in `registry.yaml`. A repeated multi-step capability should usually become a Skill or workflow instead of a longer prompt.

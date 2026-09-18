@@ -1,0 +1,6 @@
+---
+description: Mandatory workspace discovery and artifact-routing rules
+alwaysApply: true
+---
+
+Read and follow `/AGENTS.md` before every task. Use `/INDEX.md` for knowledge discovery and `/knowledge-map.yaml` for write routing. Never use `/00-inbox/` as a fallback for a known artifact type.

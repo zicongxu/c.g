@@ -1,8 +1,11 @@
-# Evals
+# Evaluations
 
-评测用于阻止 AI 系统靠主观印象上线。
+Evaluations prevent AI capabilities from shipping on intuition alone.
 
-- 保存任务定义、数据集版本、评分规则、基线和发布门槛。
-- 区分离线质量、人工偏好、安全、延迟和成本。
-- 结果记录模型、Prompt/Skill、工具和环境的完整版本。
-- 测试集避免混入训练或示例数据；失败样本进入回归集。
+- Record task definition, dataset version, rubric, baseline, and release threshold.
+- Evaluate quality, human preference, safety, latency, and cost where relevant.
+- Record the complete model, prompt, Skill, tool, and environment versions.
+- Keep evaluation examples separate from training and prompt examples.
+- Add production failures to regression sets after review and redaction.
+
+Each evaluation must link back to the artifact it evaluates; that artifact must link to the evaluation.

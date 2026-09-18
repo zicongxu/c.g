@@ -1,21 +1,21 @@
-# 信息与资产存储边界
+# Information and Asset Storage Boundaries
 
-AI-native 公司不应把所有内容塞进同一个网盘。按可版本化、体积、敏感度和查询方式选择系统，并在本协作空间保留入口索引。
+An AI-native company should not store every artifact in one drive. Choose the system by versioning needs, size, sensitivity, and query pattern. Keep a stable index link in this workspace.
 
-| 内容 | 推荐主存储 | 本空间保存什么 |
+| Content | Primary system | Store in this repository |
 |---|---|---|
-| 战略、规范、产品定义、ADR、Playbook | 本 Git 协作空间 | 完整 Markdown 与历史版本 |
-| 任务、负责人、截止日期、实时状态 | 项目管理系统 | 项目入口、关键里程碑与看板链接 |
-| 原片、音频、工程文件、成片 | 对象存储/NAS/媒体资产系统 | 资产 ID、版本、授权、哈希、链接 |
-| 模型权重与大型数据集 | 模型/数据仓库或对象存储 | 模型卡、数据卡、版本、许可、评测链接 |
-| 指标明细、事件和日志 | 数据仓库/可观测平台 | 指标定义、查询入口和看板链接 |
-| 密钥、Token、恢复码 | 密钥管理器/密码管理器 | 密钥名称、owner 和申请流程，不保存值 |
-| 合同签署件、薪酬、身份材料 | 有审计和细粒度权限的受控系统 | 脱敏摘要、owner、受控链接 |
-| 聊天、邮件、会议录屏 | 原协作系统 | 经提炼的结论、行动项和原记录链接 |
+| Strategy, standards, product definitions, ADRs, playbooks | This Git workspace | Full Markdown and version history |
+| Tasks, assignees, deadlines, live status | Project management system | Project entrypoint, milestones, board link |
+| Raw footage, audio, project files, rendered video | Object storage, NAS, or media asset manager | Asset ID, version, rights, checksum, stable link |
+| Model weights and large datasets | Model/data registry or object storage | Model card, dataset card, version, license, evaluation link |
+| Metrics, events, and logs | Data warehouse or observability platform | Metric definition, query entrypoint, dashboard link |
+| Secrets, tokens, recovery codes | Secret or password manager | Secret name, owner, request process; never the value |
+| Signed contracts, compensation, identity records | Audited restricted system | Redacted summary, owner, restricted link |
+| Chat, email, meeting recording | Original collaboration system | Reviewed conclusion, actions, source link |
 
-## 链接原则
+## Link Requirements
 
-- 外部资产使用稳定 ID，不用“最终版”“最新版本”作为唯一标识。
-- 链接条目同时记录 owner、访问级别、创建/核验日期和失效后的处理方式。
-- 核心业务不能只依赖个人账号下的链接。
-- 外部链接失效时，不应让决策依据消失；必要摘要和出处信息应保留在本空间。
+- Use stable asset IDs and explicit versions; never rely on labels such as `final` or `latest` alone.
+- Record owner, access class, verification date, and expected retention.
+- Core business knowledge must not depend on a single employee's personal account.
+- Preserve enough citation metadata that a broken external link does not erase the rationale for a decision.

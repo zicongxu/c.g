@@ -1,0 +1,11 @@
+schema_version: 1
+artifact_type: skill
+required_item_fields:
+  - id
+  - path
+  - summary
+  - status
+  - owner
+  - version
+  - updated
+items: []

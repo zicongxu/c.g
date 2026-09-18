@@ -1,9 +1,11 @@
-# Knowledge
+# Shared Knowledge
 
-- `index/`：主题导航、知识地图和权威来源清单。
-- `glossary/`：公司术语、产品名、指标和缩写。
-- `playbooks/`：跨团队、已验证、可重复执行的方法。
-- `meetings/`：需要长期保留的会议记录与结论。
-- `references/`：外部资料、原始证据和出处索引。
+| Directory | Content |
+|---|---|
+| `index/` | Canonical source map and topic navigation |
+| `glossary/` | Company terms, product names, metrics, abbreviations |
+| `playbooks/` | Cross-team, validated, repeatable procedures |
+| `meetings/` | Meetings whose conclusions require durable retention |
+| `references/` | External sources, raw evidence, citation indexes |
 
-只有跨项目且长期有效的内容进入这里；项目内部知识优先留在对应项目目录。
+Only cross-domain and durable knowledge belongs here. Project-specific knowledge remains with its project. This directory is not a fallback for Skills, prompts, tools, or uncategorized content.

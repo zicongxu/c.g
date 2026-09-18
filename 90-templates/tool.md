@@ -1,8 +1,8 @@
 ---
-title: 工具或软件名称
-summary: 它解决什么问题
+title: Tool or software name
+summary: The problem this tool solves
 status: draft
-owner: 待指定
+owner: unassigned
 updated: YYYY-MM-DD
 review_cycle: quarterly
 source_of_truth: true
@@ -11,31 +11,31 @@ tags: [tool]
 related: []
 ---
 
-# 工具或软件名称
+# Tool or Software Name
 
-## 用途
+## Purpose
 
-- 适用场景：
-- 不适用场景：
-- 用户/团队：
+- Intended use:
+- Non-use cases:
+- Users or teams:
 
-## 访问与所有权
+## Access and Ownership
 
-- Owner：
-- 官方入口：
-- 账号与权限申请：
-- 凭证位置：仅写密钥管理器中的引用，不写凭证本身
+- Owner:
+- Official entrypoint:
+- Access request:
+- Credential reference: name the secret-manager entry; never store the value
 
-## 使用
+## Usage
 
-- 安装：
-- 最小示例：
-- 常用命令/流程：
-- 故障排查：
+- Installation:
+- Minimal example:
+- Common commands or workflow:
+- Troubleshooting:
 
-## 治理
+## Governance
 
-- 供应商/许可证：
-- 数据与隐私：
-- 费用与续费日期：
-- 替代方案与退出计划：
+- Vendor and license:
+- Data and privacy:
+- Cost and renewal date:
+- Alternative and exit plan:

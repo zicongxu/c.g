@@ -1,8 +1,12 @@
 # Company
 
-- `brief/`：公司简介、核心能力、统一对外表述。
-- `strategy/`：愿景、年度目标、战略假设与季度复盘。
-- `brand/`：品牌定位、视觉与语言规范。
-- `org/`：组织结构、职责边界和协作接口。
+Company-level facts and direction.
 
-公司级事实应有明确 owner；受限人事信息不要放在这里。
+| Directory | Content |
+|---|---|
+| `brief/` | Company profile, capabilities, approved external language |
+| `strategy/` | Vision, goals, strategic assumptions, reviews |
+| `brand/` | Positioning, visual identity, voice, naming |
+| `org/` | Team structure, responsibility boundaries, interfaces |
+
+Company facts require an owner. Restricted people data belongs in an audited system, not here.

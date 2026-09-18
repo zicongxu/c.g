@@ -1,8 +1,8 @@
 ---
-title: ADR-NNN 决策标题
-summary: 一句话概括选择
+title: ADR-NNN Decision title
+summary: One sentence describing the choice
 status: proposed
-owner: 待指定
+owner: unassigned
 updated: YYYY-MM-DD
 review_cycle: event-driven
 source_of_truth: true
@@ -11,42 +11,42 @@ tags: [decision]
 related: []
 ---
 
-# ADR-NNN：决策标题
+# ADR-NNN: Decision Title
 
-## 状态
+## Status
 
 Proposed / Accepted / Superseded by ADR-XXX / Deprecated
 
-## 背景
+## Context
 
-描述问题、约束、已知事实和为什么现在要决定。
+Describe the problem, constraints, verified facts, and why a decision is needed now.
 
-## 决策
+## Decision
 
-明确写出选择以及适用范围。
+State the choice and its scope precisely.
 
-## 备选方案
+## Alternatives Considered
 
-### 方案 A
+### Option A
 
-- 优点：
-- 缺点：
-- 未选择原因：
+- Benefits:
+- Costs:
+- Reason not selected:
 
-### 方案 B
+### Option B
 
-- 优点：
-- 缺点：
-- 未选择原因：
+- Benefits:
+- Costs:
+- Reason not selected:
 
-## 后果
+## Consequences
 
-- 获得什么：
-- 付出什么：
-- 新风险：
-- 迁移或回滚方式：
+- Benefits gained:
+- Costs accepted:
+- New risks:
+- Migration or rollback:
 
-## 证据与复核条件
+## Evidence and Review Triggers
 
-- 证据：
-- 当以下情况发生时复核：
+- Evidence:
+- Reconsider when:

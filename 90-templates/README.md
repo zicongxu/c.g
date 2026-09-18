@@ -1,11 +1,15 @@
 # Templates
 
-复制最接近的模板再编辑，不要直接修改模板本身。
+Copy the closest template and edit the copy. Do not modify a template to hold project-specific content.
 
-- `doc.md`：通用长期文档。
-- `project.md`：产品或视频项目状态页。
-- `decision.md`：架构/公司决策记录。
-- `experiment.md`：AI、产品或增长实验。
-- `meeting.md`：需要保留的会议记录。
-- `tool.md`：CLI、软件或第三方服务目录项。
-- `skill.md`：AI Skill 定义。
+| Template | Use for |
+|---|---|
+| `doc.md` | Durable general knowledge |
+| `project.md` | Product or video project status page |
+| `decision.md` | Architecture or company decision record |
+| `experiment.md` | AI, product, or growth experiment |
+| `meeting.md` | Meeting with durable decisions or actions |
+| `tool.md` | CLI, software, or external service record |
+| `skill.md` | AI Skill definition |
+
+After creating a typed artifact, update the registry required by `knowledge-map.yaml`.

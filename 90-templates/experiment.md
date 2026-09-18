@@ -1,8 +1,8 @@
 ---
-title: EXP-YYYYMMDD 实验标题
-summary: 要验证的单一假设
+title: EXP-YYYYMMDD Experiment title
+summary: The single hypothesis being tested
 status: draft
-owner: 待指定
+owner: unassigned
 updated: YYYY-MM-DD
 review_cycle: event-driven
 source_of_truth: true
@@ -11,38 +11,38 @@ tags: [experiment]
 related: []
 ---
 
-# EXP-YYYYMMDD：实验标题
+# EXP-YYYYMMDD: Experiment Title
 
-## 假设
+## Hypothesis
 
-如果做 X，那么 Y 会改善，因为 Z。
+If X changes, Y will improve because Z.
 
-## 设计
+## Design
 
-- 对照与变量：
-- 样本/数据集版本：
-- 模型、参数和 Prompt/Skill 版本：
-- 环境与依赖：
-- 运行步骤：
+- Control and variables:
+- Sample or dataset version:
+- Model, parameters, and prompt/Skill version:
+- Environment and dependencies:
+- Reproduction steps:
 
-## 判断标准
+## Decision Criteria
 
-| 指标 | 基线 | 成功阈值 | 测量方法 |
+| Metric | Baseline | Success threshold | Measurement method |
 |---|---:|---:|---|
-|  |  |  |  |
+| Add metric | - | - | - |
 
-## 结果
+## Results
 
-- 运行日期：
-- 定量结果：
-- 定性观察：
-- 成本与耗时：
-- 异常：
+- Run date:
+- Quantitative results:
+- Qualitative observations:
+- Cost and duration:
+- Anomalies:
 
-## 结论
+## Conclusion
 
-支持 / 不支持 / 证据不足。
+Supported / Not supported / Insufficient evidence.
 
-## 下一步
+## Next Step
 
-- [ ]
+- [ ] Add next action.

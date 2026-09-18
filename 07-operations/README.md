@@ -1,8 +1,10 @@
 # Operations
 
-- `people/`：岗位、招聘流程、入离职清单与团队制度。
-- `finance/`：预算口径、流程和财务系统索引。
-- `legal/`：合同模板索引、版权、隐私与合规流程。
-- `admin/`：行政、采购、账户与供应商管理流程。
+| Directory | Content |
+|---|---|
+| `people/` | Roles, hiring process, onboarding/offboarding, policies |
+| `finance/` | Budget definitions, processes, finance system indexes |
+| `legal/` | Template indexes, copyright, privacy, compliance workflows |
+| `admin/` | Administration, procurement, accounts, vendor processes |
 
-本目录默认为 `restricted`。薪酬、证件、银行、合同签署件等敏感材料应放在有细粒度权限和审计能力的专用系统。
+Treat this domain as `restricted`. Compensation, identity data, banking information, and signed contracts belong in systems with granular permissions and audit logs.

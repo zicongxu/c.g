@@ -1,8 +1,10 @@
 # Products
 
-- `portfolio/`：所有产品、服务和内部平台的总览。
-- `roadmaps/`：目标、阶段、里程碑和依赖。
-- `specs/`：PRD、用户故事、验收标准和发布说明。
-- `feedback/`：结构化客户反馈、问题和证据链接。
+| Directory | Content |
+|---|---|
+| `portfolio/` | Product, service, and internal platform definitions |
+| `roadmaps/` | Outcomes, phases, milestones, dependencies |
+| `specs/` | Requirements, user stories, acceptance criteria, release notes |
+| `feedback/` | Structured customer feedback and evidence |
 
-每个产品建独立目录，以 `README.md` 作为产品当前状态页；过期需求保留状态，不覆盖历史。
+Every product gets a stable `kebab-case` ID and a directory with `README.md` as its current state page. Register every product in `registry.yaml`.

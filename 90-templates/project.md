@@ -1,8 +1,8 @@
 ---
-title: 项目名称
-summary: 项目的一句话目标
+title: Project name
+summary: One-sentence project outcome
 status: draft
-owner: 待指定
+owner: unassigned
 updated: YYYY-MM-DD
 review_cycle: event-driven
 source_of_truth: true
@@ -11,51 +11,51 @@ tags: [project]
 related: []
 ---
 
-# 项目名称
+# Project Name
 
-## 当前状态
+## Current State
 
-- 阶段：发现 / 设计 / 制作 / 验证 / 上线 / 结束
-- 健康度：正常 / 风险 / 阻塞
-- 最近进展：
-- 下一里程碑：
+- Phase: discovery / design / production / validation / launched / closed
+- Health: on-track / at-risk / blocked
+- Latest progress:
+- Next milestone:
 
-## 目标与非目标
+## Goals and Non-goals
 
-### 目标
+### Goals
 
--
+- Add a goal.
 
-### 非目标
+### Non-goals
 
--
+- Add a non-goal.
 
-## 成功标准
+## Success Criteria
 
-| 指标 | 基线 | 目标 | 数据源 | 截止时间 |
+| Metric | Baseline | Target | Source | Deadline |
 |---|---:|---:|---|---|
-|  |  |  |  |  |
+| Add metric | - | - | - | - |
 
-## 受众与场景
+## Audience and Use Cases
 
-- 核心用户：
-- 使用场景：
-- 待验证假设：
+- Primary user:
+- Use case:
+- Assumptions to validate:
 
-## 交付物与里程碑
+## Deliverables and Milestones
 
-| 交付物 | Owner | 状态 | 日期 | 链接 |
+| Deliverable | Owner | Status | Date | Link |
 |---|---|---|---|---|
-|  |  |  |  |  |
+| Add deliverable | unassigned | planned | YYYY-MM-DD | - |
 
-## 决策、风险与依赖
+## Decisions, Risks, Dependencies
 
-- 决策：链接 ADR 或会议结论。
-- 风险：
-- 依赖：
+- Decisions: link ADRs or reviewed meeting conclusions.
+- Risks:
+- Dependencies:
 
-## 资产与结果
+## Assets and Results
 
-- 代码/设计/视频资产：
-- 数据与评测：
-- 复盘：
+- Code, design, or media assets:
+- Data and evaluations:
+- Retrospective:

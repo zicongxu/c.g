@@ -1,9 +1,5 @@
 # Model Registry
 
-记录正在评估或使用的基础模型、生成模型和内部模型。价格与能力会变化，至少按月复核生产模型。
+Use `registry.yaml` to discover models. Each production model also needs a model card documenting limitations, failure modes, safety controls, replacement plan, and evaluation links.
 
-| 模型 | 供应商/来源 | 用途 | 版本 | 许可 | 数据策略 | 质量基线 | 成本基线 | 状态 | Owner |
-|---|---|---|---|---|---|---|---|---|---|
-|  |  |  |  |  |  |  |  | evaluating |  |
-
-每个进入生产的模型应有独立模型卡，记录已知限制、失败模式、安全策略、替换方案和关联评测。
+Model pricing and capability change quickly. Review production models at least monthly or when a provider releases a material update.

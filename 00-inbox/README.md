@@ -1,8 +1,16 @@
-# Inbox
+# Human Capture Inbox
 
-临时收集尚未归类的想法、链接、会议材料和外部文件。
+This directory is only for raw, unclassified material captured by a human.
 
-- 文件名建议：`YYYY-MM-DD-short-topic.md`。
-- 写明来源、创建人和预期归属。
-- 每周处理：合并到权威文档、移动到正确目录、转为任务，或归档。
-- 这里不是永久知识库；超过 30 天仍未处理的内容应被提醒。
+## Agent Rule
+
+Agents must not use this directory as a fallback. If the artifact type is known, route it using `/AGENTS.md` and `/knowledge-map.yaml`. If it is genuinely undefined, ask the user.
+
+Agents may write here only when the user explicitly requests inbox capture.
+
+## Human Triage
+
+- Name captures `YYYY-MM-DD-short-topic.md`.
+- Record source, creator, capture date, and likely destination.
+- Review weekly: classify, merge into a canonical source, convert to a task, or archive.
+- Nothing should remain here longer than 30 days without an owner.

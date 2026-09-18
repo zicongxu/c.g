@@ -1,17 +1,25 @@
 # Skills
 
-每个 Skill 使用独立目录：
+## Required Location
+
+Every Skill uses this structure:
 
 ```text
-skill-name/
+09-ai/skills/<kebab-case-skill-name>/
 ├── SKILL.md
-├── examples/
-├── evals/
-└── scripts/        # 如需要
+├── examples/       # optional
+├── evals/          # optional
+└── scripts/        # optional
 ```
 
-Skill 必须包含明确触发条件、输入输出契约、权限边界、失败行为和评测。只有达到发布门槛且经 owner 审阅后，状态才能改为 `active`。
+Creating or importing a Skill anywhere else is a routing error. Never place a Skill in `00-inbox/`.
 
-## 已收录技能包
+## Required Workflow
 
-- [剧本到视频提示词技能包](ai-film-skill-package/README.md)：9 个影视技能、项目模板与安装脚本，保留原始压缩包；状态为 draft，待评测。
+1. Search `registry.yaml` for the name and aliases.
+2. Create or update `skills/<skill-name>/SKILL.md`.
+3. Include trigger conditions, non-triggers, input/output contract, permission boundaries, failure behavior, examples, and evaluation criteria.
+4. Update `registry.yaml` in the same change.
+5. Run `10-tools/scripts/validate-workspace.sh`.
+
+Only an owner-reviewed Skill that meets its evaluation threshold may use `status: active`.

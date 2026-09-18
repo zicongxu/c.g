@@ -1,59 +1,68 @@
 ---
-title: Skill 名称
-summary: 一句话说明 Skill 能稳定完成什么任务
+title: Skill name
+summary: One sentence describing the repeatable capability
 status: draft
-owner: 待指定
+owner: unassigned
 updated: YYYY-MM-DD
 review_cycle: monthly
 source_of_truth: true
 confidentiality: internal
 tags: [ai, skill]
 related: []
+version: 0.1.0
 ---
 
-# Skill 名称
+# Skill Name
 
-## 触发条件
+## Trigger Conditions
 
-- 应该使用：
-- 不应该使用：
+- Use when:
+- Do not use when:
 
-## 输入契约
+## Input Contract
 
-| 字段 | 类型 | 必填 | 说明 |
+| Field | Type | Required | Description |
 |---|---|---|---|
-|  |  |  |  |
+| Add field | string | yes | Describe the input |
 
-## 输出契约
+## Output Contract
 
-描述格式、质量标准和失败方式。
+Define format, quality criteria, and explicit failure behavior.
 
-## 工作流程
+## Workflow
 
-1.
+1. Add the first step.
 
-## 工具与权限
+## Tools and Permissions
 
-- 允许使用：
-- 禁止操作：
-- 需要人工确认：
+- Allowed tools:
+- Forbidden actions:
+- Human approval required for:
 
-## 示例
+## Examples
 
-### 成功示例
+### Success Example
 
-### 边界/失败示例
+Add a representative example.
 
-## 评测
+### Boundary or Failure Example
 
-- 评测集：
-- 评分规则：
-- 当前基线：
-- 最近结果：
-- 发布门槛：
+Add a representative example.
 
-## 版本记录
+## Evaluation
 
-| 版本 | 日期 | 变更 | 评测结果 |
+- Evaluation set:
+- Scoring rubric:
+- Current baseline:
+- Latest result:
+- Release threshold:
+
+## Version History
+
+| Version | Date | Change | Evaluation result |
 |---|---|---|---|
-| 0.1.0 | YYYY-MM-DD | 初版 | 待评测 |
+| 0.1.0 | YYYY-MM-DD | Initial draft | Not evaluated |
+
+## Registry Update
+
+Add this Skill to `/09-ai/skills/registry.yaml` in the same change.

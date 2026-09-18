@@ -1,7 +1,5 @@
-# 软件目录
+# Software Catalog
 
-使用 `90-templates/tool.md` 为重要软件建立条目，并维护以下总览。密码、Token 和恢复码不得写入本仓库。
+Use `registry.yaml` as the canonical list of SaaS and desktop software. Each item records purpose, owner, users or seats, cost cycle, renewal date, data classification, access process, and status.
 
-| 软件 | 用途 | Owner | 用户/席位 | 费用周期 | 续费时间 | 数据级别 | 状态 |
-|---|---|---|---:|---|---|---|---|
-|  |  |  |  |  |  |  |  |
+Passwords, tokens, recovery codes, and private license keys must never enter this repository.

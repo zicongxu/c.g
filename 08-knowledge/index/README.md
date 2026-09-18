@@ -1,12 +1,17 @@
-# 权威知识索引
+# Canonical Knowledge Index
 
-这里维护最重要主题的唯一权威来源。新增一份 `active` 且 `source_of_truth: true` 的公司级文档时，在下表登记。
+Register every company-level document that is both `active` and `source_of_truth: true`.
 
-| 主题 | 权威文档 | Owner | 最后核验 | 复核周期 |
-|---|---|---|---|---|
-| 公司定位 | 待补充 | 待指定 | - | quarterly |
-| 产品组合 | 待补充 | 待指定 | - | monthly |
-| 视频生产流程 | 待补充 | 待指定 | - | monthly |
-| 技术架构 | 待补充 | 待指定 | - | event-driven |
-| 指标口径 | 待补充 | 待指定 | - | quarterly |
-| AI 使用政策 | 待补充 | 待指定 | - | quarterly |
+| Topic | Canonical source | Owner | Last verified | Review cycle | Status |
+|---|---|---|---|---|---|
+| Workspace operating contract | `AGENTS.md` | workspace maintainers | 2026-09-18 | event-driven | active |
+| Workspace navigation | `INDEX.md` | workspace maintainers | 2026-09-18 | event-driven | active |
+| Artifact routing | `knowledge-map.yaml` | workspace maintainers | 2026-09-18 | event-driven | active |
+| Knowledge governance | `KNOWLEDGE.md` | workspace maintainers | 2026-09-18 | quarterly | active |
+| Storage boundaries | `STORAGE.md` | workspace maintainers | 2026-09-18 | quarterly | active |
+| Company profile | `01-company/brief/company-profile.md` | unassigned | 2026-09-18 | quarterly | draft |
+| Product portfolio | `02-products/registry.yaml` | Congguo product team | 2026-09-18 | monthly | active |
+| Video production pipeline | not established | unassigned | - | monthly | missing |
+| Technical architecture | not established | unassigned | - | event-driven | missing |
+| Metric definitions | not established | unassigned | - | quarterly | missing |
+| AI use policy | not established | unassigned | - | quarterly | missing |

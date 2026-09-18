@@ -1,0 +1,113 @@
+schema_version: 1
+workspace:
+  name: Congguo Media
+  native_name: 葱果传媒
+  description: AI-native video AI startup company workspace
+  default_language: en
+
+agent_entrypoints:
+  rules: AGENTS.md
+  claude: CLAUDE.md
+  github_copilot: .github/copilot-instructions.md
+  cursor: .cursor/rules/00-workspace-routing.mdc
+  human_index: INDEX.md
+  governance: KNOWLEDGE.md
+  storage_policy: STORAGE.md
+
+lookup_order:
+  - INDEX.md
+  - knowledge-map.yaml
+  - domain README.md
+  - domain registry.yaml
+  - scoped full-text search
+
+registry_contract:
+  required_fields: [id, path, summary, status, owner, updated]
+  allowed_statuses: [draft, reviewed, active, deprecated, archived]
+  path_rule: repository-relative
+  update_rule: update registry in the same change as the artifact
+
+inbox:
+  path: 00-inbox/
+  agent_default: false
+  allowed_for_agents_only_when: user_explicitly_requests_inbox_capture
+
+routing:
+  company:
+    path: 01-company/
+    types: [company-fact, mission, strategy, brand, organization]
+  product:
+    path: 02-products/
+    types: [product, roadmap, product-spec, product-feedback]
+    registry: 02-products/registry.yaml
+  studio:
+    path: 03-studio/
+    types: [video-project, creative-system, production-pipeline, media-asset]
+    registry: 03-studio/projects/registry.yaml
+  research:
+    path: 04-research/
+    types: [market-research, user-research, model-research, paper, experiment]
+  engineering:
+    path: 05-engineering/
+    types: [architecture, adr, engineering-standard, runbook, incident, repository]
+    registry: 05-engineering/repositories/registry.yaml
+  growth:
+    path: 06-growth/
+    types: [content, marketing, sales, partnership, growth-metric]
+  operations:
+    path: 07-operations/
+    types: [people, finance, legal, administration]
+  shared_knowledge:
+    path: 08-knowledge/
+    types: [glossary, playbook, meeting-conclusion, external-reference]
+  agent:
+    path_pattern: 09-ai/agents/<agent-name>/
+    types: [agent]
+    registry: 09-ai/agents/registry.yaml
+  skill:
+    path_pattern: 09-ai/skills/<skill-name>/SKILL.md
+    types: [skill]
+    registry: 09-ai/skills/registry.yaml
+    template: 90-templates/skill.md
+  prompt:
+    path_pattern: 09-ai/prompts/<prompt-name>/
+    types: [prompt]
+    registry: 09-ai/prompts/registry.yaml
+  ai_workflow:
+    path_pattern: 09-ai/workflows/<workflow-name>/
+    types: [ai-workflow]
+    registry: 09-ai/workflows/registry.yaml
+  evaluation:
+    path_pattern: 09-ai/evals/<eval-name>/
+    types: [evaluation]
+  context_pack:
+    path_pattern: 09-ai/context/<context-name>.md
+    types: [context-pack]
+  ai_policy:
+    path: 09-ai/policies/
+    types: [ai-policy]
+  cli:
+    path_pattern: 10-tools/cli/<cli-name>/
+    types: [cli]
+    registry: 10-tools/cli/registry.yaml
+  script:
+    path: 10-tools/scripts/
+    types: [script]
+  integration:
+    path: 10-tools/integrations/
+    types: [integration]
+    registry: 10-tools/integrations/registry.yaml
+  software:
+    path: 10-tools/software/
+    types: [software]
+    registry: 10-tools/software/registry.yaml
+  archive:
+    path_pattern: 99-archive/<original-path>/
+    types: [archived]
+
+completion_requirements:
+  - artifact stored at routed path
+  - required metadata present
+  - canonical registry or index updated
+  - related sources linked
+  - workspace validation passes

@@ -1,8 +1,9 @@
 # Archive
 
-保存已结束项目、过期材料和被取代的文档。
+This directory preserves closed projects, superseded material, and retired artifacts.
 
-- 尽量保持原目录结构。
-- 移入前将状态改为 `archived`，写明归档日期与原因。
-- 不把仍被生产流程依赖的内容归档。
-- 历史 ADR 不移动到这里，保留在原决策目录并更新状态。
+- Preserve the original directory path under `99-archive/` when practical.
+- Set status to `archived` and record date, reason, replacement, and owner.
+- Remove the item from its active registry or mark it archived there.
+- Do not archive anything still required by a production workflow.
+- Keep historical ADRs in the decisions directory and update their status instead of moving them here.

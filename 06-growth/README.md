@@ -1,9 +1,11 @@
 # Growth
 
-- `content/`：内容策略、栏目、选题与发布复盘。
-- `marketing/`：活动、渠道和品牌增长。
-- `sales/`：销售流程、客户阶段和标准材料索引。
-- `partnerships/`：合作模式、伙伴清单和协作记录。
-- `metrics/`：北极星指标、漏斗、口径和看板链接。
+| Directory | Content |
+|---|---|
+| `content/` | Content strategy, series, topics, publishing reviews |
+| `marketing/` | Campaigns, channels, brand growth |
+| `sales/` | Sales process, customer stages, standard material indexes |
+| `partnerships/` | Partnership models, partners, collaboration records |
+| `metrics/` | North-star metric, funnels, definitions, dashboards |
 
-客户隐私和合同原文放受控系统；这里保留脱敏洞察与索引。
+Store customer-private data and signed agreements in restricted systems. Keep redacted insights and stable links here.

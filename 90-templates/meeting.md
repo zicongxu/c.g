@@ -1,8 +1,8 @@
 ---
-title: YYYY-MM-DD 会议主题
-summary: 会议目的与最重要结论
+title: YYYY-MM-DD Meeting topic
+summary: Meeting purpose and most important conclusion
 status: active
-owner: 记录人
+owner: note-taker
 updated: YYYY-MM-DD
 review_cycle: event-driven
 source_of_truth: false
@@ -11,28 +11,28 @@ tags: [meeting]
 related: []
 ---
 
-# YYYY-MM-DD：会议主题
+# YYYY-MM-DD: Meeting Topic
 
-## 参与者
+## Participants
 
--
+- Add participant.
 
-## 结论
+## Conclusions
 
--
+- Add reviewed conclusion.
 
-## 决策
+## Decisions
 
-- 决策内容 — 决策人 — 对应 ADR/项目链接
+- Decision — decision owner — ADR or project link
 
-## 行动项
+## Actions
 
-- [ ] 事项 — owner — YYYY-MM-DD
+- [ ] Action — owner — YYYY-MM-DD
 
-## 讨论与证据
+## Evidence and Discussion
 
-只保留对理解结论有帮助的上下文；逐字稿或录屏使用外部链接。
+Keep only the context needed to understand conclusions. Link the transcript or recording in its source system.
 
-## 未决问题
+## Open Questions
 
--
+- Add question.

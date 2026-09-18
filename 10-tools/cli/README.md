@@ -1,11 +1,11 @@
-# CLI
+# CLI Catalog
 
-每个内部 CLI 一个独立目录，并至少包含：
+Each internal CLI lives at `cli/<cli-name>/` and documents:
 
-- 安装、升级与卸载方式。
-- 常用命令和真实示例。
-- 输入输出契约、退出码和非交互模式。
-- 权限、凭证引用和数据影响范围。
-- 测试、版本、owner 与故障排查。
+- installation, upgrade, and removal;
+- common commands and real examples;
+- input/output contract, exit codes, and non-interactive mode;
+- permissions, credential reference, and data impact;
+- tests, version, owner, and troubleshooting.
 
-会改变生产数据的命令应支持 dry-run 或显式确认，并留下审计记录。
+Register every CLI in `registry.yaml`. Production-mutating commands should support dry-run or explicit confirmation and produce an audit record.

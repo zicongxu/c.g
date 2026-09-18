@@ -1,9 +1,7 @@
 # Integrations
 
-记录第三方 API、Webhook、机器人与账号连接。
+Document third-party APIs, webhooks, bots, and account connections here. Never store credential values.
 
-| 集成 | 目的 | 数据流向 | 权限范围 | Owner | 凭证引用 | 告警/Runbook | 状态 |
-|---|---|---|---|---|---|---|---|
-|  |  |  |  |  |  |  |  |
+Each production integration records purpose, data direction, permission scope, owner, credential-manager reference, rate limits, retries, retention, status page, runbook, and exit plan.
 
-不要写入真实凭证。每个生产集成应记录限流、失败重试、数据保留、退出/迁移方案和供应商状态页。
+Register every integration in `registry.yaml`.

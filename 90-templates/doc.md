@@ -1,8 +1,8 @@
 ---
-title: 文档标题
-summary: 一句话说明本文解决的问题
+title: Document title
+summary: One sentence explaining the problem this document solves
 status: draft
-owner: 待指定
+owner: unassigned
 updated: YYYY-MM-DD
 review_cycle: quarterly
 source_of_truth: false
@@ -11,26 +11,26 @@ tags: []
 related: []
 ---
 
-# 文档标题
+# Document Title
 
-## 结论
+## Conclusion
 
-先写读者最需要知道的结论。
+State the conclusion or operational instruction first.
 
-## 背景与范围
+## Context and Scope
 
-说明为什么需要本文，以及适用和不适用的范围。
+Explain why this exists, what it applies to, and what it does not apply to.
 
-## 正文
+## Details
 
-写事实、方法或规范。将事实与推断明确区分。
+Separate verified facts, inferences, and open hypotheses.
 
-## 依据
+## Evidence
 
-- 原始来源：
-- 数据时间：
-- 验证方式：
+- Original sources:
+- Evidence date:
+- Verification method:
 
-## 后续行动
+## Follow-up
 
-- [ ] 行动项 — owner — 截止日期
+- [ ] Action — owner — due date

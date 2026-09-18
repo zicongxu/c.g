@@ -1,5 +1,5 @@
 # AI Policies
 
-这里定义模型与 Agent 的公司级边界，包括：数据分类、允许的模型供应商、版权与肖像、内容安全、人工审核、生产权限、日志与留存、事故响应。
+Company-level policy for model and agent use belongs here, including data classification, approved model providers, copyright, likeness and voice rights, content safety, human review, production permissions, logging, retention, and incident response.
 
-政策应由明确 owner 审阅，并链接法务、安全及工程执行标准。
+Every policy requires an owner and links to legal, security, and engineering controls. Company-wide active policies also appear in `08-knowledge/index/README.md`.
