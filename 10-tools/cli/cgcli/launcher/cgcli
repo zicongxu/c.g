@@ -1,0 +1,26 @@
+#!/bin/sh
+set -eu
+
+config_path="${CGCLI_CONFIG_PATH:-$HOME/Library/Application Support/Congguo/cgcli-app-path}"
+
+if [ -n "${CGCLI_APP_PATH:-}" ]; then
+    app_path="$CGCLI_APP_PATH"
+elif [ -f "$config_path" ]; then
+    IFS= read -r app_path < "$config_path" || app_path=""
+elif [ -d "$HOME/Applications/葱果深度工坊.app" ]; then
+    app_path="$HOME/Applications/葱果深度工坊.app"
+elif [ -d "/Applications/葱果深度工坊.app" ]; then
+    app_path="/Applications/葱果深度工坊.app"
+else
+    echo "cgcli: 葱果深度工坊.app not found" >&2
+    echo "Install it in ~/Applications or /Applications, or set CGCLI_APP_PATH." >&2
+    exit 3
+fi
+
+app_executable="$app_path/Contents/MacOS/CongGuoDepthStudio"
+if [ ! -x "$app_executable" ]; then
+    echo "cgcli: app runtime is missing or not executable: $app_executable" >&2
+    exit 3
+fi
+
+exec "$app_executable" --cgcli "$@"

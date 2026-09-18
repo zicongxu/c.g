@@ -21,6 +21,10 @@ the company-wide CLI.
 - Final data uses stdout. Progress and human diagnostics use stderr.
 - `--output-format json` returns exactly one final JSON object on stdout.
 - Heavy or product-specific dependencies are imported only inside their capability handler.
+- Production installation is a lightweight launcher into the App Bundle. Do not create a second
+  Python runtime or copy model weights for cgcli.
+- The packaged executable accepts the private transport marker `--cgcli`; users continue to use the
+  public `cgcli <domain> <capability>` contract.
 - Non-interactive calls never prompt. Destructive replacement requires an explicit flag.
 - Exit codes and JSON fields are compatibility contracts; change them additively or release a major
   version with a migration note.

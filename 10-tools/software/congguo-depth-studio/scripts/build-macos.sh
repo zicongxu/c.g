@@ -18,13 +18,15 @@ if [[ "$actual_sha256" != "$expected_sha256" ]]; then
   exit 1
 fi
 
-if [[ ! -x .venv/bin/python ]]; then
+python_bin="${DEPTH_STUDIO_PYTHON:-$project_root/.venv/bin/python}"
+if [[ ! -x "$python_bin" ]]; then
   python3 -m venv .venv
+  python_bin="$project_root/.venv/bin/python"
 fi
 
-.venv/bin/pip install -e '.[build]'
+"$python_bin" -m pip install -e '.[build]'
 cache_dir="${TMPDIR:-/tmp}/congguo-depth-studio-pyinstaller"
-PYINSTALLER_CONFIG_DIR="$cache_dir" .venv/bin/pyinstaller \
+PYINSTALLER_CONFIG_DIR="$cache_dir" "$python_bin" -m PyInstaller \
   --noconfirm \
   --clean \
   packaging/macos/DepthMotionStudio.spec

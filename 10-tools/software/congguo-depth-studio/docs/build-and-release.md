@@ -53,6 +53,17 @@ DEPTH_STUDIO_PROCESS_TEST_OUTPUT=/tmp/sample-depth.mp4 \
 
 Testing source code alone cannot detect omitted bundle resources or libraries.
 
+Verify the embedded CLI before installing the lightweight launcher:
+
+```bash
+'dist/葱果深度工坊.app/Contents/MacOS/CongGuoDepthStudio' --cgcli --version
+'dist/葱果深度工坊.app/Contents/MacOS/CongGuoDepthStudio' \
+  --cgcli --output-format json --progress none video depth \
+  /tmp/sample.mp4 --output /tmp/sample-depth.mp4
+```
+
+The CLI invocation must use the model and processing libraries inside this same App Bundle.
+
 ## Visual acceptance
 
 - First launch stays inside the screen's available geometry.

@@ -23,40 +23,75 @@ an API key, or a network connection at runtime.
 
 ## Status and ownership
 
-- Version: `0.1.0`
+- Version: `0.2.0`
 - Lifecycle: functional draft pending named human-owner acceptance
 - Owner role: Congguo Engineering
 - Data impact: reads a local video and model; writes one local MP4
 - Credentials: none
 - Runtime network: none
 
-## Install for repository development
+## Runtime architecture
+
+Production cgcli does not install Python, Qt, OpenCV, ONNX Runtime, FFmpeg, or a second model. The
+installed launcher delegates to the executable inside `葱果深度工坊.app`, which contains the shared
+cgcli command implementation and the same `DepthProcessor` used by the GUI.
+
+```text
+cgcli launcher (a few KB)
+  -> 葱果深度工坊.app/Contents/MacOS/CongGuoDepthStudio --cgcli
+  -> embedded cgcli parser
+  -> congguo_depth_studio.api
+  -> shared DepthProcessor and bundled model
+```
+
+## Install
+
+Install Congguo Depth Studio in `~/Applications` or `/Applications`, then install only the launcher:
+
+```bash
+cd 10-tools/cli/cgcli
+make install
+cgcli --version
+```
+
+If the app lives elsewhere:
+
+```bash
+make install APP=/absolute/path/葱果深度工坊.app
+```
+
+The installer selects `/opt/homebrew/bin`, `/usr/local/bin`, or `~/.local/bin` in that order when the
+directory is writable. It stores the selected App path in
+`~/Library/Application Support/Congguo/cgcli-app-path`; `CGCLI_APP_PATH` can override it at runtime.
+To uninstall, remove the installed `cgcli` launcher and that path file; the App Bundle and its model
+remain untouched.
+
+## Repository development
 
 Prerequisites: Python 3.9-3.13 and the accepted external ONNX model.
 
 ```bash
 cd 10-tools/cli/cgcli
-make install
+make dev-install
 ../../software/congguo-depth-studio/scripts/install-model.sh \
   /absolute/path/depth_anything_v2_vits.onnx
 ```
 
-`make install` installs the depth provider and cgcli in one local virtual environment. The model is
-deliberately excluded from Git. It can instead remain elsewhere and be passed through `--model` or
-`CGCLI_DEPTH_MODEL`.
+`make dev-install` is only for contributors running source tests. It intentionally creates a local
+dependency environment; production users should never need it. The model remains excluded from Git.
 
 ## Commands
 
 ```bash
 # Human-readable result; defaults to 30 FPS and source audio.
-.venv/bin/cgcli video depth /path/source.mp4
+cgcli video depth /path/source.mp4
 
 # Explicit output and processing options.
-.venv/bin/cgcli video depth /path/source.mov \
+cgcli video depth /path/source.mov \
   --output /path/result.mp4 --fps 60 --no-keep-audio --overwrite
 
 # Agent/automation mode: one JSON result on stdout and no progress.
-.venv/bin/cgcli --output-format json --progress none \
+cgcli --output-format json --progress none \
   video depth /path/source.mp4 --model /path/depth_anything_v2_vits.onnx
 ```
 
@@ -112,7 +147,9 @@ cgcli/
 │   ├── output.py                stdout/stderr and JSON rendering
 │   ├── errors.py                stable command failures
 │   └── commands/                domain parsers and provider adapters
-└── tests/                       fast contract tests with fake providers
+├── launcher/cgcli               dependency-free App Bundle launcher
+├── scripts/install-launcher.sh  macOS launcher installer
+└── tests/                       command and launcher contract tests
 ```
 
 ## Handoff

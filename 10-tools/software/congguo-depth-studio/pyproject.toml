@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "congguo-depth-studio"
-version = "2.2.0"
+version = "2.3.0"
 description = "葱果 IP 的离线单目视频深度提取桌面应用"
 readme = "README.md"
 requires-python = ">=3.9,<3.14"

@@ -20,7 +20,7 @@ Congguo Depth Studio lets a creator select or drop an ordinary monocular video a
 ## Current status
 
 - Stage: usable prototype; human product acceptance is still required.
-- Release: `2.1.0`, macOS arm64 internal build.
+- Release: `2.3.0`, macOS arm64 internal build with embedded cgcli runtime.
 - Health: functional baseline verified; distribution signing/notarization and Windows packaging remain open.
 - Canonical implementation and handoff: [`10-tools/software/congguo-depth-studio/`](../../10-tools/software/congguo-depth-studio/README.md).
 - Automation surface: [`cgcli video depth`](../../10-tools/cli/cgcli/README.md), backed by the same processing API.
@@ -53,6 +53,7 @@ Congguo Depth Studio lets a creator select or drop an ordinary monocular video a
 - A completed output appears in Recent Outputs with Play and Reveal actions.
 - The layout remains operable at `680x600` and with the macOS Dock visible.
 - Packaged execution completes a sanitized end-to-end sample without network access.
+- `cgcli video depth` delegates to the installed App Bundle and does not install a second runtime or model.
 
 ## Open decisions
 

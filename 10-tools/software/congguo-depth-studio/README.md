@@ -17,7 +17,7 @@ Congguo Depth Studio is an offline desktop application that turns a monocular vi
 
 ## Current status
 
-- Version: `2.2.0` source; the latest verified packaged macOS artifact remains `2.1.0`
+- Version: `2.3.0`
 - Lifecycle: usable prototype; remains `draft` until a named human owner accepts it
 - Verified baseline: macOS 15.7 on Apple Silicon, including packaged end-to-end processing
 - Delivered artifact: macOS arm64 `.app` and ZIP, stored outside Git
@@ -31,7 +31,8 @@ Congguo Depth Studio is an offline desktop application that turns a monocular vi
 - Privacy: no cloud model, API key, Codex, ChatGPT, telemetry, or runtime network request.
 - Results: retain up to eight valid recent outputs with Play and Reveal actions.
 - Layout: usable at `680x600`; the page scrolls when the screen or Dock reduces available height.
-- Automation: the UI-independent Python API is consumed by [`cgcli`](../../cli/cgcli/README.md).
+- Automation: the App Bundle embeds [`cgcli`](../../cli/cgcli/README.md), so GUI and CLI share one
+  runtime, model, and processing implementation.
 
 ## Five-minute setup
 

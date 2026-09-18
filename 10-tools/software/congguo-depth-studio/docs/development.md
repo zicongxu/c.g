@@ -50,6 +50,9 @@ make install-model MODEL=/absolute/path/depth_anything_v2_vits.onnx
 | `DEPTH_STUDIO_PROCESS_TEST_OUTPUT=/path/out.mp4` | Select the matching headless output |
 | `QT_QPA_PLATFORM=minimal` | Construct Qt widgets without a desktop session |
 
+`DEPTH_STUDIO_PYTHON=/absolute/path/python` lets `build-macos.sh` reuse an existing compatible
+environment. This is useful when validating the embedded cgcli without creating another `.venv`.
+
 Example:
 
 ```bash

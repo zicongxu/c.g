@@ -49,6 +49,10 @@ flowchart LR
 `api.py` is the supported boundary for automation. `cgcli` imports it lazily so the
 top-level CLI remains lightweight and future capability domains do not inherit video dependencies.
 
+The packaged executable is dual-mode. Normal launch enters the Qt GUI; the internal `--cgcli`
+transport marker enters the embedded command runtime before Qt is imported. The installed `cgcli`
+launcher delegates to that executable, preventing a second Python environment or model copy.
+
 ## Thread model
 
 - Main thread: Qt event loop, widget mutation, dialogs, and file pickers.

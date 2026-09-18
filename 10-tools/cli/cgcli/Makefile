@@ -1,8 +1,13 @@
-.PHONY: install test lint smoke clean
+.PHONY: install dev-install test lint smoke clean
 
 DEPTH_STUDIO := ../../software/congguo-depth-studio
+APP ?=
+BIN_DIR ?=
 
 install:
+	./scripts/install-launcher.sh "$(APP)" "$(BIN_DIR)"
+
+dev-install:
 	python3 -m venv .venv
 	.venv/bin/python -m pip install --upgrade 'pip>=23,<27'
 	.venv/bin/pip install -e '$(DEPTH_STUDIO)'
