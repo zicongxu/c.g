@@ -50,10 +50,23 @@ jobs:
             Write-Output "::error title=Windows Ruff check failed::Ruff returned $LASTEXITCODE"
             exit $LASTEXITCODE
           }
-          .\.venv\Scripts\python.exe -m pytest -q tests ..\..\cli\cgcli\tests
-          if ($LASTEXITCODE -ne 0) {
-            Write-Output "::error title=Windows tests failed::pytest returned $LASTEXITCODE"
-            exit $LASTEXITCODE
+
+          $AppOutput = & .\.venv\Scripts\python.exe -m pytest -q --tb=short tests 2>&1
+          $AppCode = $LASTEXITCODE
+          $AppOutput | Write-Output
+          if ($AppCode -ne 0) {
+            $Details = (($AppOutput | Select-Object -Last 12) -join " | ").Replace("%", "%25").Replace("`r", "%0D").Replace("`n", "%0A")
+            Write-Output "::error title=Windows App tests failed::$Details"
+            exit $AppCode
+          }
+
+          $CliOutput = & .\.venv\Scripts\python.exe -m pytest -q --tb=short ..\..\cli\cgcli\tests 2>&1
+          $CliCode = $LASTEXITCODE
+          $CliOutput | Write-Output
+          if ($CliCode -ne 0) {
+            $Details = (($CliOutput | Select-Object -Last 12) -join " | ").Replace("%", "%25").Replace("`r", "%0D").Replace("`n", "%0A")
+            Write-Output "::error title=Windows CLI tests failed::$Details"
+            exit $CliCode
           }
 
       - name: Build and verify portable App and embedded CLI
