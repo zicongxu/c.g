@@ -8,7 +8,7 @@ review_cycle: event-driven
 source_of_truth: false
 confidentiality: public
 tags: [ai, skill, video, codex]
-related: ["../../09-ai/skills/README.md"]
+related: ["../README.md"]
 ---
 
 # 剧本到视频提示词技能包
@@ -18,7 +18,7 @@ related: ["../../09-ai/skills/README.md"]
 - 来源：用户于 2026-09-18 提供并要求上传的文件。
 - 原始文件名：01-Codex-AI 汉化-剧本到视频提示词SKILL,一起的起点，你的核心.zip
 - 文件大小：77,070 字节。仅调整仓库中的文件名，压缩包内容保持不变。
-- 预期归属：技能整理至 `09-ai/skills/`，安装辅助脚本整理至 `10-tools/scripts/`。
+- 归属：`09-ai/skills/ai-film-skill-package/`，保存完整技能包及其配套模板、脚本。
 - 本说明由 Codex 根据压缩包目录生成；人工审阅者待指定。
 
 ## 包内内容
