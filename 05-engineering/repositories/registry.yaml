@@ -1,6 +1,13 @@
 schema_version: 1
 artifact_type: code-repository
 items:
+  - id: cgcli
+    path: 05-engineering/repositories/cgcli.md
+    summary: Repository index for the extensible Congguo command-line interface
+    status: draft
+    owner: Congguo Engineering
+    updated: 2026-09-19
+    repository_path: 10-tools/cli/cgcli/
   - id: congguo-depth-studio
     path: 05-engineering/repositories/congguo-depth-studio.md
     summary: Repository index for the offline video depth extraction desktop application

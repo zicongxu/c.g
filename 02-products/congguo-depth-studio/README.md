@@ -3,12 +3,12 @@ title: Congguo Depth Studio
 summary: Offline desktop product for turning ordinary video into a branded relative-depth video
 status: draft
 owner: Congguo Product Team
-updated: 2026-09-18
+updated: 2026-09-19
 review_cycle: monthly
 source_of_truth: true
 confidentiality: internal
 tags: [product, video-ai, depth-estimation, desktop]
-related: [../../10-tools/software/congguo-depth-studio/README.md]
+related: [../../10-tools/software/congguo-depth-studio/README.md, ../../10-tools/cli/cgcli/README.md]
 ---
 
 # Congguo Depth Studio (葱果深度工坊)
@@ -23,6 +23,7 @@ Congguo Depth Studio lets a creator select or drop an ordinary monocular video a
 - Release: `2.1.0`, macOS arm64 internal build.
 - Health: functional baseline verified; distribution signing/notarization and Windows packaging remain open.
 - Canonical implementation and handoff: [`10-tools/software/congguo-depth-studio/`](../../10-tools/software/congguo-depth-studio/README.md).
+- Automation surface: [`cgcli video depth`](../../10-tools/cli/cgcli/README.md), backed by the same processing API.
 
 ## Target users and jobs
 

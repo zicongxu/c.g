@@ -1,3 +1,13 @@
 schema_version: 1
 artifact_type: cli
-items: []
+items:
+  - id: cgcli
+    path: 10-tools/cli/cgcli/README.md
+    summary: Unified command-line access to Congguo capabilities for people, agents, and automation
+    status: draft
+    owner: Congguo Engineering
+    updated: 2026-09-19
+    data_classification: internal
+    access_process: Install from the canonical monorepo source and install capability providers locally
+    version: 0.1.0
+    aliases: [Congguo CLI, 葱果 CLI]

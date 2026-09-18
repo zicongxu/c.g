@@ -9,3 +9,7 @@ Each internal CLI lives at `cli/<cli-name>/` and documents:
 - tests, version, owner, and troubleshooting.
 
 Register every CLI in `registry.yaml`. Production-mutating commands should support dry-run or explicit confirmation and produce an audit record.
+
+## Current CLI
+
+[`cgcli/`](cgcli/README.md) is the company-wide entry point for human, agent, and automation use. The canonical inventory is [`registry.yaml`](registry.yaml).

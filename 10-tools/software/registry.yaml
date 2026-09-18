@@ -3,7 +3,7 @@ artifact_type: software
 items:
   - id: congguo-depth-studio
     path: 10-tools/software/congguo-depth-studio/README.md
-    purpose: Offline conversion of monocular video into stabilized relative-depth video
+    summary: Offline conversion of monocular video into stabilized relative-depth video
     owner: Congguo Product Team
     users_or_seats: Internal creators and authorized testers
     cost_cycle: Internal software; no SaaS renewal
