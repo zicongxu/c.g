@@ -1,0 +1,10 @@
+schema_version: 1
+artifact_type: code-repository
+items:
+  - id: congguo-depth-studio
+    path: 05-engineering/repositories/congguo-depth-studio.md
+    summary: Repository index for the offline video depth extraction desktop application
+    status: draft
+    owner: Congguo Product Team
+    updated: 2026-09-18
+    repository_path: 10-tools/software/congguo-depth-studio/

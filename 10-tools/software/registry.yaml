@@ -1,0 +1,16 @@
+schema_version: 1
+artifact_type: software
+items:
+  - id: congguo-depth-studio
+    path: 10-tools/software/congguo-depth-studio/README.md
+    purpose: Offline conversion of monocular video into stabilized relative-depth video
+    owner: Congguo Product Team
+    users_or_seats: Internal creators and authorized testers
+    cost_cycle: Internal software; no SaaS renewal
+    renewal_date: null
+    data_classification: internal
+    access_process: Build locally from the canonical source and install the controlled model weight
+    status: draft
+    version: 2.1.0
+    updated: 2026-09-18
+    aliases: [CongGuo Depth Studio, 葱果深度工坊]

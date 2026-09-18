@@ -1,0 +1,15 @@
+.DS_Store
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+build/
+dist/
+*.spec.bak
+src/congguo_depth_studio/resources/*.onnx
+*.mp4
+*.mov
+*.mkv
+*.avi
+*.webm

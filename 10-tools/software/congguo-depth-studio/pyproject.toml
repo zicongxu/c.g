@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "congguo-depth-studio"
+version = "2.1.0"
+description = "葱果 IP 的离线单目视频深度提取桌面应用"
+readme = "README.md"
+requires-python = ">=3.9,<3.14"
+license = {text = "Proprietary"}
+authors = [{name = "葱果产品团队"}]
+dependencies = [
+  "PySide6>=6.8,<7",
+  "imageio-ffmpeg>=0.6,<1",
+  "numpy>=2,<3",
+  "onnxruntime>=1.19,<2",
+  "opencv-python-headless>=4.10,<6",
+]
+
+[project.optional-dependencies]
+build = ["PyInstaller>=6.11,<7"]
+dev = ["pytest>=8,<9", "ruff>=0.9,<1"]
+
+[project.scripts]
+congguo-depth-studio = "congguo_depth_studio.app:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+congguo_depth_studio = ["resources/brand/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
