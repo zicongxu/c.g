@@ -14,6 +14,8 @@ Every Skill uses this structure:
 
 Creating or importing a Skill anywhere else is a routing error. Never place a Skill in `00-inbox/`.
 
+Raw archives containing multiple unreviewed Skills belong in `09-ai/skill-packages/`; they are not installed Skills.
+
 ## Required Workflow
 
 1. Search `registry.yaml` for the name and aliases.

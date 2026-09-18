@@ -23,6 +23,7 @@ required_files=(
   "05-engineering/repositories/registry.yaml"
   "09-ai/agents/registry.yaml"
   "09-ai/skills/registry.yaml"
+  "09-ai/skill-packages/registry.yaml"
   "09-ai/prompts/registry.yaml"
   "09-ai/workflows/registry.yaml"
   "10-tools/cli/registry.yaml"
@@ -66,6 +67,22 @@ while IFS= read -r skill_dir; do
     errors=$((errors + 1))
   fi
 done < <(find "09-ai/skills" -mindepth 1 -maxdepth 1 -type d | sort)
+
+while IFS= read -r package_dir; do
+  package_readme="$package_dir/README.md"
+  relative_package_readme="${package_readme#./}"
+
+  if [[ ! -f "$package_readme" ]]; then
+    echo "ERROR Skill package is missing README.md: ${package_dir#./}"
+    errors=$((errors + 1))
+    continue
+  fi
+
+  if ! grep -Fq "path: $relative_package_readme" "09-ai/skill-packages/registry.yaml"; then
+    echo "ERROR Skill package is not registered: $relative_package_readme"
+    errors=$((errors + 1))
+  fi
+done < <(find "09-ai/skill-packages" -mindepth 1 -maxdepth 1 -type d | sort)
 
 while IFS= read -r misplaced_skill; do
   echo "ERROR SKILL.md exists outside 09-ai/skills/: ${misplaced_skill#./}"

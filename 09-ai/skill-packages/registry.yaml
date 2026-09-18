@@ -1,0 +1,11 @@
+schema_version: 1
+artifact_type: skill-package
+items:
+  - id: ai-film-skill-package
+    path: 09-ai/skill-packages/ai-film-skill-package/README.md
+    summary: Unreviewed source archive containing nine AI film Skills and project utilities
+    status: draft
+    owner: unassigned
+    updated: 2026-09-19
+    archive: 09-ai/skill-packages/ai-film-skill-package/ai-film-skill-package.zip
+    sha256: 04fba1050f5d0dfb04f41e51521f9b22cc53c8224ca60cba0445e88681cc5f6e

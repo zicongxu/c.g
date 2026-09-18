@@ -16,6 +16,7 @@ This is the canonical discovery entrypoint for humans and AI agents. Use it to s
 | Cross-domain canonical knowledge | `08-knowledge/README.md` | `08-knowledge/index/README.md` |
 | Agents | `09-ai/agents/README.md` | `09-ai/agents/registry.yaml` |
 | Skills | `09-ai/skills/README.md` | `09-ai/skills/registry.yaml` |
+| Raw Skill packages | `09-ai/skill-packages/README.md` | `09-ai/skill-packages/registry.yaml` |
 | Prompts | `09-ai/prompts/README.md` | `09-ai/prompts/registry.yaml` |
 | AI workflows | `09-ai/workflows/README.md` | `09-ai/workflows/registry.yaml` |
 | Evaluations and context packs | `09-ai/README.md` | Consumer artifact links |

@@ -69,6 +69,11 @@ routing:
     types: [skill]
     registry: 09-ai/skills/registry.yaml
     template: 90-templates/skill.md
+  skill_package:
+    path_pattern: 09-ai/skill-packages/<package-name>/
+    types: [skill-package, raw-skill-archive]
+    registry: 09-ai/skill-packages/registry.yaml
+    install_policy: inspect_without_execution_then_extract_approved_skills_individually
   prompt:
     path_pattern: 09-ai/prompts/<prompt-name>/
     types: [prompt]

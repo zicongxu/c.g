@@ -46,6 +46,7 @@ Route by what the artifact **is**, not merely what it is about.
 | Cross-domain glossary, playbook, meeting conclusion, reference | `08-knowledge/` | `08-knowledge/index/README.md` when canonical |
 | Agent definition | `09-ai/agents/<agent-name>/` | `09-ai/agents/registry.yaml` |
 | Skill | `09-ai/skills/<skill-name>/SKILL.md` | `09-ai/skills/registry.yaml` |
+| Raw bundle containing one or more Skills | `09-ai/skill-packages/<package-name>/` | `09-ai/skill-packages/registry.yaml` |
 | Prompt | `09-ai/prompts/<prompt-name>/` | `09-ai/prompts/registry.yaml` |
 | AI workflow | `09-ai/workflows/<workflow-name>/` | `09-ai/workflows/registry.yaml` |
 | Evaluation | `09-ai/evals/<eval-name>/` | Link from the evaluated agent/skill/prompt/workflow |
@@ -66,6 +67,8 @@ A request to create, install, import, edit, or document a Skill always routes to
 ```
 
 The same change must update `09-ai/skills/registry.yaml`. A Skill placed in `00-inbox/`, `08-knowledge/`, or a generic documents folder is incorrectly stored.
+
+A raw archive containing multiple unreviewed Skills is a `skill-package`, not an installed Skill. Preserve it under `09-ai/skill-packages/<package-name>/`, register it there, and do not execute its scripts. Each approved Skill must later be extracted to its own `09-ai/skills/<skill-name>/SKILL.md` and registered independently.
 
 ## 4. Inbox Policy
 
