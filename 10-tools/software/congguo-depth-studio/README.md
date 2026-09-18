@@ -3,7 +3,7 @@ title: Congguo Depth Studio
 summary: Offline desktop software that converts monocular video into a stabilized relative-depth video
 status: draft
 owner: Congguo Product Team
-updated: 2026-09-18
+updated: 2026-09-19
 review_cycle: event-driven
 source_of_truth: true
 confidentiality: internal
@@ -17,7 +17,7 @@ Congguo Depth Studio is an offline desktop application that turns a monocular vi
 
 ## Current status
 
-- Version: `2.1.0`
+- Version: `2.2.0` source; the latest verified packaged macOS artifact remains `2.1.0`
 - Lifecycle: usable prototype; remains `draft` until a named human owner accepts it
 - Verified baseline: macOS 15.7 on Apple Silicon, including packaged end-to-end processing
 - Delivered artifact: macOS arm64 `.app` and ZIP, stored outside Git
@@ -31,6 +31,7 @@ Congguo Depth Studio is an offline desktop application that turns a monocular vi
 - Privacy: no cloud model, API key, Codex, ChatGPT, telemetry, or runtime network request.
 - Results: retain up to eight valid recent outputs with Play and Reveal actions.
 - Layout: usable at `680x600`; the page scrolls when the screen or Dock reduces available height.
+- Automation: the UI-independent Python API is consumed by [`cgcli`](../../cli/cgcli/README.md).
 
 ## Five-minute setup
 
@@ -86,6 +87,7 @@ congguo-depth-studio/
 
 - New agent or maintainer: start with [`AGENTS.md`](AGENTS.md).
 - Processing or model changes: read [`docs/architecture.md`](docs/architecture.md) and [`docs/development.md`](docs/development.md).
+- CLI automation: use the public contract in [`api.py`](src/congguo_depth_studio/api.py); do not import Qt UI modules.
 - Packaging or release: read [`docs/build-and-release.md`](docs/build-and-release.md).
 - User-environment failures: read [`docs/operations.md`](docs/operations.md).
 - Dependency review: read [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md).

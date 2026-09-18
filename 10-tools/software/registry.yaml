@@ -11,6 +11,6 @@ items:
     data_classification: internal
     access_process: Build locally from the canonical source and install the controlled model weight
     status: draft
-    version: 2.1.0
-    updated: 2026-09-18
+    version: 2.2.0
+    updated: 2026-09-19
     aliases: [CongGuo Depth Studio, 葱果深度工坊]

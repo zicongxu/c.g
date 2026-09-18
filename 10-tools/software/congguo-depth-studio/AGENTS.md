@@ -37,6 +37,8 @@ Commit source, tests, build scripts, documentation, small brand assets, and mode
 - Reusable UI components and UI-state copy: `widgets.py`.
 - Visual tokens and QSS: `styles.py`; do not add ad-hoc inline styling to `app.py`.
 - Video, inference, temporal normalization, and FFmpeg behavior: `depth_processor.py`.
+- Public automation contract and request validation: `api.py`; shared callback/cancellation types:
+  `contracts.py`.
 - macOS bundle metadata and collection rules: `packaging/macos/DepthMotionStudio.spec`.
 - Model changes: update `MODEL.md`, both model/build scripts, tests, and the visual regression baseline together.
 - Version changes: update `pyproject.toml`, `__init__.py`, the PyInstaller spec, and `CHANGELOG.md` together.

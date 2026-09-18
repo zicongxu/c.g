@@ -3,7 +3,7 @@ title: Congguo Depth Studio Architecture
 summary: Runtime modules, thread ownership, state transitions, and video-processing data flow
 status: draft
 owner: Congguo Product Team
-updated: 2026-09-18
+updated: 2026-09-19
 review_cycle: event-driven
 source_of_truth: true
 confidentiality: internal
@@ -41,8 +41,13 @@ flowchart LR
 | `app.py` | Page composition, state transitions, worker lifetime, recent outputs | Frame algorithms and visual styling |
 | `widgets.py` | Brand header, stage bar, drop target, results list | Video inference |
 | `styles.py` | QSS, color, typography, spacing, widget-state styling | Business state |
+| `contracts.py` | Lightweight callbacks and cancellation exception shared across boundaries | Video dependencies or orchestration |
 | `depth_processor.py` | Probe, FFmpeg children, ONNX session, frame processing, cancellation | UI widgets |
+| `api.py` | Public request/result contract, validation, model discovery, processor orchestration | Qt widgets or CLI rendering |
 | `DepthMotionStudio.spec` | Bundle resources, libraries, icon, and Info.plist | Runtime behavior |
+
+`api.py` is the supported boundary for automation. `cgcli` imports it lazily so the
+top-level CLI remains lightweight and future capability domains do not inherit video dependencies.
 
 ## Thread model
 

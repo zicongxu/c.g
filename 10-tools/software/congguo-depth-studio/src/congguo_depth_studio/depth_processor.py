@@ -6,23 +6,16 @@ import subprocess
 import tempfile
 import time
 from pathlib import Path
-from typing import Callable, Optional
 
 import cv2
 import imageio_ffmpeg
 import numpy as np
 import onnxruntime as ort
 
-
-ProgressCallback = Callable[[int, str, Optional[float]], None]
-CancelCallback = Callable[[], bool]
+from .contracts import CancelCallback, ProcessingCancelled, ProgressCallback
 
 MEAN = np.array([0.485, 0.456, 0.406], dtype=np.float32)
 STD = np.array([0.229, 0.224, 0.225], dtype=np.float32)
-
-
-class ProcessingCancelled(RuntimeError):
-    pass
 
 
 def probe_video(path: str | Path) -> dict[str, float | int]:

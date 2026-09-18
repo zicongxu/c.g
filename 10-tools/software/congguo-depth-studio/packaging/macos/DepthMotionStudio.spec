@@ -67,8 +67,8 @@ app = BUNDLE(
     info_plist={
         "CFBundleDisplayName": "葱果深度工坊",
         "CFBundleName": "葱果深度工坊",
-        "CFBundleShortVersionString": "2.1.0",
-        "CFBundleVersion": "4",
+        "CFBundleShortVersionString": "2.2.0",
+        "CFBundleVersion": "5",
         "LSMinimumSystemVersion": "13.0",
         "NSHighResolutionCapable": True,
         "NSPrincipalClass": "NSApplication",

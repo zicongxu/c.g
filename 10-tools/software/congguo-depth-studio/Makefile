@@ -2,6 +2,7 @@
 
 install:
 	python3 -m venv .venv
+	.venv/bin/python -m pip install --upgrade 'pip>=23,<27'
 	.venv/bin/pip install -e '.[dev,build]'
 
 install-model:

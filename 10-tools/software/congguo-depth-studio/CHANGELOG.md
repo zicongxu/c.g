@@ -2,6 +2,17 @@
 
 Versions follow semantic versioning. Dates use `YYYY-MM-DD`.
 
+## [2.2.0] - 2026-09-19
+
+### Added
+
+- Public, UI-independent `extract_depth_video` API for CLI and automation callers.
+- Typed request/result objects, stable validation errors, and default model discovery.
+
+### Fixed
+
+- Upgrade pip before editable development installs so the documented setup works with macOS Python 3.9.
+
 ## [2.1.0] - 2026-09-18
 
 ### Added
