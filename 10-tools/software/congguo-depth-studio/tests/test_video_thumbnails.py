@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import os
 from pathlib import Path
 
 import numpy as np
@@ -8,6 +9,9 @@ from PySide6.QtTest import QSignalSpy, QTest
 from PySide6.QtWidgets import QApplication
 
 from congguo_depth_studio import widgets
+
+# This test intentionally creates a QWidget; CI runners do not need a real display.
+os.environ.setdefault("QT_QPA_PLATFORM", "minimal")
 
 
 class FakeCapture:
