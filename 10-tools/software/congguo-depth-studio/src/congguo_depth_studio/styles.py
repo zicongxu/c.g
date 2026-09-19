@@ -83,13 +83,32 @@ QFrame#dropArea {
     border: 2px dashed #C9D7B9;
     border-radius: 14px;
 }
+QFrame#dropArea[hovered="true"] {
+    background: #F7FBEF;
+    border-color: #8EBB65;
+}
+QFrame#dropArea[pressed="true"] {
+    background: #EAF4DF;
+    border-color: #68A52B;
+}
+QFrame#dropArea:focus {
+    border: 2px solid #5F9D28;
+}
 QFrame#dropArea[selected="true"] {
     background: #F1F8E9;
     border: 2px solid #7DB83B;
 }
+QFrame#dropArea[selected="true"][hovered="true"] {
+    background: #EAF5DE;
+    border-color: #68A52B;
+}
 QFrame#dropArea[active="true"] {
     background: #E8F4DB;
     border: 2px solid #68A52B;
+}
+QFrame#dropArea:disabled {
+    background: #F2EEE7;
+    border-color: #DCD5CB;
 }
 QLabel#dropEyebrow {
     color: #659F2B;
@@ -110,11 +129,9 @@ QFrame#resultItem {
     border: 1px solid #E7E0D5;
     border-radius: 9px;
 }
-QLabel#resultStatus {
-    color: #FFFFFF;
-    background: #7DB83B;
-    border-radius: 14px;
-    font-weight: 800;
+QLabel#videoThumbnail {
+    background: transparent;
+    border: 0;
 }
 QScrollArea#resultsScroll, QWidget#resultsContainer {
     background: transparent;

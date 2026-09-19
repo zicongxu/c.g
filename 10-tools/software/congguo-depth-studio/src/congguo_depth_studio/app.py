@@ -119,18 +119,8 @@ class MainWindow(QMainWindow):
 
         self.drop_area = DropArea()
         self.drop_area.file_selected.connect(self.set_source)
+        self.drop_area.select_requested.connect(self.choose_source)
         main.addWidget(self.drop_area)
-
-        source_row = QHBoxLayout()
-        self.source_label = QLabel("尚未选择视频")
-        self.source_label.setObjectName("secondary")
-        self.source_label.setWordWrap(True)
-        self.choose_button = QPushButton("选择视频")
-        self.choose_button.setAccessibleName("选择输入视频")
-        self.choose_button.clicked.connect(self.choose_source)
-        source_row.addWidget(self.source_label, 1)
-        source_row.addWidget(self.choose_button)
-        main.addLayout(source_row)
 
         options = QFrame()
         options.setObjectName("panel")
@@ -230,9 +220,6 @@ class MainWindow(QMainWindow):
         self.drop_area.set_selected(
             path, int(info["width"]), int(info["height"]), duration
         )
-        self.source_label.setText(f"输入位置：{path.parent}")
-        self.source_label.setToolTip(str(path))
-        self.choose_button.setText("更换视频")
         self.output_path = path.with_name(f"{path.stem}_depth.mp4")
         self.output_edit.setText(str(self.output_path))
         self.start_button.setEnabled(self.model_path.exists())
@@ -337,7 +324,6 @@ class MainWindow(QMainWindow):
         self.fps_combo.setEnabled(not running)
         self.audio_check.setEnabled(not running)
         self.drop_area.setEnabled(not running)
-        self.choose_button.setEnabled(not running)
         self.output_button.setEnabled(not running)
 
     def _load_recent_outputs(self) -> None:
